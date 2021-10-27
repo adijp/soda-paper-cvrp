@@ -1,0 +1,893 @@
+
+
+\documentclass[twoside,leqno]{article}
+\usepackage[letterpaper]{geometry}
+
+\usepackage{ltexpprt}
+\usepackage{hyperref}
+%\usepackage[margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{verbatim}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{quotes}
+\usetikzlibrary{arrows.meta}
+\usepackage{subfig}
+
+\usetikzlibrary{snakes,arrows,shapes}
+
+%\usepackage{palatino,xcolor}
+
+%\author{Aditya Jayaprakash \\
+%Department of Computing Science\\ 
+%University of Alberta
+%\and Mohammad R. Salavatipour\footnote{Supported by NSERC.}\\
+%Department of Computing Science\\ 
+%University of Alberta}
+\date{}
+\usepackage{hyperref}
+\usepackage{natbib}
+\usepackage{bbm}
+\usepackage{amsmath,amssymb,enumerate,ifthen,tikz,floatrow,amsmath, algorithm,algorithmic}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\newcounter{lecnum}
+\graphicspath{ {./images/} }
+%\newtheorem{theorem}{Theorem} 
+%\newtheorem{lemma}{Lemma} 
+\newtheorem{claim}{Claim} 
+%\newtheorem{proposition}{Proposition} 
+\newtheorem{prob}{Problem} 
+%\newtheorem{corollary}{Corollary} 
+\newtheorem{question}{Question} 
+\newtheorem{conjecture}{Conjecture} 
+\newtheorem{example}{Example} 
+\newtheorem{definition}{Definition} 
+\newtheorem{remarka}{Remark} 
+\usepackage{float}
+\def\P{\mathop{\rm P}\nolimits}
+\def\NP{\mathop{\rm NP}\nolimits}
+\def\DTIME{\mathop{\rm DTIME}\nolimits}
+\def\BPTIME{\mathop{\rm BPTIME}\nolimits}
+\def\ZPTIME{\mathop{\rm ZPTIME}\nolimits}
+\def\polylog{\mathop{\rm polylog}\nolimits}
+\usepackage{hyperref}
+\newenvironment{remark}{\begin{remarka}\rm}{\end{remarka}} 
+%\newenvironment{proof}{{\bf Proof.}}{\hfill\rule{2mm}{2mm}} 
+\newenvironment{pproof}[1]{\noindent{\textbf{Proof of #1.}}}{\hfill\rule{2mm}{2mm}} 
+\newcommand{\calI}{{\cal I}}
+\newcommand{\calT}{{\cal T}}
+\newcommand{\calH}{{\cal H}}
+\newcommand{\calP}{{\cal P}}
+\newcommand{\calX}{{\cal X}}
+\newcommand{\Prob}[1]{\mathbb{P}{\left[#1\right]}}
+\newcommand{\Ex}[1]{\mathbb{E}{\left[#1\right]}}
+
+\newcommand{\E}{{\rm E}}
+\newcommand{\Var}{{\rm Var}}
+\newcommand{\Cov}{{\rm Cov}}
+%\newcommand{\Pr}{{\rm Pr}}
+\newcommand{\opt}{\mbox{\sc opt}}
+\newcommand{\OPT}{\mbox{\sc OPT}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\mi}[1]{\underset{#1}{\text{min }}}
+\newcommand{\ma}[1]{\underset{#1}{\text{max }}}
+\newcommand{\zeroes}{\textsc{zeroes}}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\Otild}{\Tilde{O}}
+\newcommand{\eps}{\epsilon}
+\newcommand{\rmin}{\text{\textbf{rmin}}}
+\newcommand{\rmax}{\text{\textbf{rmax}}}
+\newcommand{\hateps}{\overline{\epsi}}
+\newcommand{\new}{\textsc{New}}
+\newcommand{\tilambda}{\Tilde{\lambda}}
+\newcommand{\tilF}{\Tilde{F}}
+\newcommand{\tilL}{\Tilde{L}}
+\newcommand{\hatF}{\hat F}
+\newcommand{\hatL}{\hat L}
+\newcommand{\lone}{l_1}
+\newcommand{\ltwp}{l_2}
+\newcommand{\prune}{\textsc{Prune}}
+\newcommand{\poly}{\text{poly}}
+\newcommand{\collapse}{\textsc{Collapse}}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\newcommand{\match}{\textsc{MATCHING}}
+\newcommand{\bipmatch}{\textsc{BIP-MATCH}}
+\newcommand{\classp}{\textsc{P}}
+\newcommand{\classnp}{\textsc{NP}}
+\newcommand{\classnph}{\text{NP-Hard}}
+\newcommand{\plog}{\text{polylog}}
+\newcommand{\rpm}{\raisebox{.2ex}{$\scriptstyle\pm$}}
+\newcommand{\length}{\text{length}}
+\newcommand{\level}{\text{level}}
+\newcommand{\cost}{\text{cost}}
+\newcommand{\Rad}{\text{Rad}}
+\newcommand{\dist}{\text{dist}}
+\newcommand{\R}{\mathbb{R}}
+\DeclarePairedDelimiter\autobracket{(}{)}
+\newcommand{\br}[1]{\autobracket*{#1}}
+\newcommand{\IDL}{\cal I_{D,L}}
+\newcommand{\TSP}{\text{TSP}}
+\newcommand{\MST}{\text{MST}}
+\newcommand{\combine}{\text{Combine}}
+\newcommand{\sol}{\text{Sol}}
+\newcommand{\leaves}{\text{leaves}}
+\newcommand{\LB}{\text{LB}}
+\newcommand{\penal}{\text{penalty}}
+\newcommand{\ith}{i^{\text{th}}}
+\newcommand{\cov}{\text{cov}}
+\newcommand{\cvrp}{\textsc{Cvrp}}
+\newcommand{\uuct}{\textsc{Uuct}}
+\newcommand{\conn}{\text{conn}}
+\newcommand{\APX}{\text{APX-Hard}}
+\newcommand{\partition}{\textsc{Partition}}
+\newcommand{\threepart}{\textsc{3-Partition}}
+\newcommand{\stcvrp}{\textsc{Stcvrp}}
+\newcommand{\yes}{\textsc{Yes}}
+\newcommand{\no}{\textsc{No}}
+\newcommand{\maxpart}{\textsc{Max-3-Partition}}
+\newcommand{\acomp}{A^C}
+\newcommand{\seg}{\text{seg}}
+\newcommand{\drop}{\text{drop}}
+\begin{document}
+\newcommand\relatedversion{}
+\renewcommand\relatedversion{\thanks{The full version of the paper can be accessed at \protect\url{https://arxiv.org/abs/2106.15034}}}
+
+
+\title{\Large Approximation Schemes for Capacitated Vehicle Routing on Graphs of Bounded Treewidth, Bounded Doubling, or Highway Dimension\relatedversion}
+\author{Aditya Jayaprakash\\
+Department of Computing Science\\
+University of Alberta\\
+jayaprak@ualberta.ca \and
+Mohammad R. Salavatipour\thanks{Supported by NSERC.}\\
+Department of Computing Science\\
+University of Alberta\\
+mrs@ualberta.ca}
+
+\date{}
+
+\maketitle
+\fancyfoot[R]{\scriptsize{Copyright \textcopyright\ 2022 by SIAM\\
+Unauthorized reproduction of this article is prohibited}}
+
+\newcommand{\tvec}{\vec{t}}
+\newcommand{\yvec}{\vec{y}}
+\newcommand{\nvec}{\vec{n}}
+\newcommand{\dvec}{\vec{d}}
+\newcommand{\hvec}{\vec{h}}
+\newcommand{\lvec}{\vec{l}}
+\newcommand{\zvec}{\vec{z}}
+\newcommand{\ovec}{\vec{o}}
+\newcommand{\pvec}{\vec{p}}
+\newcommand{\onevec}{\mathbbm{1}}
+\newcommand{\bbold}{\textbf{B}}
+\newcommand{\cbold}{\textbf{C}}
+\newcommand{\abold}{\textbf{A}}
+\newcommand{\ebold}{\textbf{E}}
+\newcommand{\hbold}{\textbf{H}}
+\newcommand{\ibold}{\textbf{I}}
+%\textheight 9.1in	% 11 - 1 - 1
+%\textwidth 6.6in	% 8.5 - 1 - 1
+%\topmargin -0.6in
+
+\newcommand{\hevmixed}{\text{heavy part of mixed-segment}}
+\newcommand{\aditya}[1]{{\color{violet}Aditya: #1}}
+\newcommand{\chop}{\text{chop}}
+\newcommand{\tope}{\text{top}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\newcommand{\boundellipse}[3]% center, xdim, ydim
+{(#1) ellipse (#2 and #3)
+}
+
+
+%\maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
+ \thispagestyle{empty} 
+\begin{abstract}
+In this paper, we present Approximation Schemes for Capacitated Vehicle Routing Problem (CVRP) on several classes of graphs.
+In CVRP, introduced by Dantzig and Ramser in 1959 \cite{Dantzig}, we are given a graph $G=(V,E)$ with metric edges costs, a depot $r\in V$, and a vehicle of bounded capacity $Q$. The goal is
+to find a minimum cost collection of tours for the vehicle that return to the depot, each visiting at most $Q$ nodes, such that they 
+cover all the nodes. This generalizes classic TSP and has been studied extensively. In the more general setting, each node $v$ has
+a demand $d_v$ and the total demand of each tour must be no more than $Q$. Either the demand of each node must be served by one tour
+(unsplittable) or can be served by multiple tours (splittable). The best known approximation algorithm for general graphs has 
+ratio $\alpha+2(1-\epsilon)$ (for the unsplittable) and $\alpha+1-\epsilon$ (for the splittable) for some fixed $\epsilon>\frac{1}{3000}$, where $\alpha$ is the best approximation for TSP.
+Even for the case of trees, the best approximation ratio is $4/3$ \cite{Becker18} and it has been an open question if there is an approximation scheme for this simple class of graphs. Das and Mathieu \cite{Das-Mathieu} presented an approximation
+scheme with time $n^{\log^{O(1/\epsilon)}n}$ for Euclidean plane $\RR^2$. No other approximation scheme is known for any other class of metrics
+(without further restrictions on $Q$). In this paper, we make significant progress on this classic problem by presenting Quasi-Polynomial Time Approximation Schemes (QPTAS) for graphs of bounded treewidth, graphs of bounded highway dimensions, and graphs of bounded doubling dimensions. For comparison, our result implies an approximation scheme for Euclidean plane with run time $n^{O(\log^{6}n/\eps^{5})}$. 
+\end{abstract}
+
+%\newpage
+%\setcounter{page}{1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+Vehicle routing problems (VRP) describe a class of problems where the objective is to find cost efficient delivery routes for delivering items from depots to clients using vehicles having limited capacity. These problems have numerous applications in real world settings. The Capacitated Vehicle Routing Problem (CVRP) was introduced by Dantzig and Ramser in 1959 \cite{Dantzig}. In CVRP, we are given as input a graph $G=(V,E)$ with
+metric edge weights (also referred to as costs) $w(e)\in\mathbb{Z}^{\ge 0}$,
+a depot $r\in V$, along with a vehicle of capacity $Q>0$, and wish to compute a minimum weight/cost collection of tours, each starting from the depot and visiting at most $Q$ customers, whose union covers all the customers. In the more general setting, each node $v$ has a demand $d(v)\in \mathbb{Z}^{\ge 1}$ and the goal is to find a set of tours of minimum total cost, each of which includes $r$ such that the union of the tours covers the demand at every client and every tour covers at most $Q$ demand. 
+
+There are three common versions of CVRP: \emph{unit}, \emph{splittable}, and \emph{unsplittable}. In the splittable variant, the demand of a node can be delivered using multiple tours, but in the unsplittable variant, the entire demand of a client must be delivered by a single tour. The unit demand case is a special case of the unsplittable case where every node has unit demand and the demand of a client must be delivered by a single tour. CVRP has also been referred to as the $k$-tours problem \cite{Arora-Euclidean-PTAS, stoc/AsanoKTT97}.
+ All three variants admit constant factor approximation algorithm in polynomial-time \cite{Haimovich-Kan}. Haimovich et al. \cite{Haimovich-Kan} showed that a heuristic
+ called iterative partitioning (which starts from a TSP tour and breaking the tour into capacity respecting tours by making a trip back and  forth to the depot) implies an $(\alpha+1(1-1/Q))$-approximation
+ for the unit demand case, with $\alpha$ being the approximation ratio of Traveling Salesman Problem (TSP). 
+ A similar approach implies a
+$2 + (1 - 2/Q)\alpha)$-approximation for the unsplittable variant \cite{ALTINKEMER1987149}. Very recently, Blauth et al. \cite{Vygen} improved these approximations by showing that there is an $\eps > 0$ such that there is an $(\alpha + 2 \cdot (1 - \eps))$-approximation algorithm for unsplittable CVRP and a $(\alpha + 1 - \eps)$-approximation algorithm for unit demand CVRP and splittable CVRP. For $\alpha = 3/2$, they showed $\eps > 1/3000$. 
+ All three variants are APX-hard in general metric spaces \cite{Papadimitrio-Yannakakis}, so a natural research focus has been on structured metric spaces, i.e. special graph classes. Even on on trees (and in particular on stars) CVRP remains NP-hard \cite{Labbe-Mercure}, and there exists constant-factor approximations (currently being $4/3$ \cite{Becker18}), better than those for general metrics, however the following question has remained open:\\
+\textbf{Question.} Is it possible to design an approximation scheme for CVRP on trees or more generally graphs of bounded treewidth? 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsection{Main Contributions}
+
+We answer the above question affirmatively. For ease of exposition we start by proving the following first:
+\begin{theorem}\label{thm:tree}
+For any $\eps > 0$, there is an algorithm that, for any instance of the unit demand CVRP on trees outputs a $(1 + \eps)$-approximate solution in time $n^{O(\log^4 n/\eps^3)}$.
+For any instance of the splittable CVRP on trees when $Q = n^{O(\log^c n)}$ the algorithm  
+runs in time $n^{O(\log^{2c + 4}n)}$.
+\end{theorem}
+
+%We will also show how our work can be extended to a QPTAS for the splittable variant when $Q$ is also quasi-polynomial (in $n$). 
+
+%\begin{corollary}\label{cor:tree}
+%For any $\eps > 0$, there is an algorithm that, for any instance %of the splittable CVRP on trees
+%outputs a $(1 + \eps)$-approximate solution in time $n^{O(\log^{2c + 4}n)}$ when $Q = n^{O(\log^c n)}$. 
+%\end{corollary}
+
+We then show how this result can be extended to design QPTAS for graphs of bounded treewidth.
+
+\begin{theorem}\label{thm:treewidth}
+For any $\eps > 0$, there is an algorithm that, for any instance of the unit demand CVRP on a graph $G$ of bounded treewidth $k$ outputs a $(1+\eps)$-approximate solution in time 
+$n^{O(k^2\log^3 n/\eps^2)}$. For the splittable CVRP on graphs of bounded treewidth when $Q = n^{O(\log^c n)}$, 
+the algorithm outputs a $(1 + \eps)$-approximate solution in time $n^{O(k^2\log^{2c + 3} n/\eps^2)}$.
+\end{theorem}
+
+%We will also prove how our work can be extended to a QPTAS for the splittable variant when $Q = n^{O(\log^c n)}$. 
+
+%\begin{corollary}\label{cor:treewidth}
+%Let $\eps > 0$. There is an algorithm that, for any instance of the splittable CVRP on graphs of treewidth $k$ and when $Q %= n^{O(\log^c n)}$, outputs a $(1 + \eps)$-approximate solution in time $n^{O(k^2\log^{2c + 3} n/\eps^2)}$.
+%\end{corollary}
+
+As a consequence of this and using earlier results of embedding of graphs of bounded doubling dimensions or bounded highway dimensions into graphs of low treewidth we obtain approximation schemes for CVRP on those graph classes.
+
+\begin{theorem}\label{thm:DD}
+For any $\eps > 0$ and fixed $D > 0$, there is a an algorithm that, given an instance of the splittable CVRP with 
+capacity $Q = n^{\log^c n}$ on a graph of doubling dimension $D$, finds a $(1 + \eps)$-approximate solution in time $n^{O(D^D \log^{2c + D + 3}n/\eps^{D+2})}$.
+\end{theorem}
+
+As an immediate corollary, this implies an approximation scheme for CVRP on Euclidean metrics on $\mathbb{R}^2$ in time $n^{O(\log^{6}n/\eps^{5})}$
+which improves on the run time of $n^{\log^{O(1/\epsilon)}n}$ of QPTAS of \cite{Das-Mathieu}. 
+
+\begin{theorem}\label{thm:HD}
+For any $\eps > 0, \lambda > 0$ and $D > 0$, there is a an algorithm that, given a graph with highway dimension $D$ with violation $\lambda$ as an instance of the splittable CVRP with capacity $Q = n^{\log^c n}$, finds a solution whose cost is at most $(1 + \eps)$ times the optimum in time $n^{O( \log^{2c + 3 + \log^2(\frac{D}{\eps \lambda})\cdot \frac{1}{\lambda}}n/\eps^2)}$.
+\end{theorem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+\subsection{Related Works}
+CVRP generalizes the classic TSP problem (with $Q=n$).
+For general metrics, Haimovich et al. \cite{Haimovich-Kan} considered a simple heuristic, called tour partitioning, which starts from a TSP tour and then splits the tour into tours of size at most $Q$ (by making back-and-forth trips to $r$) and showed that it is a $(1 + (1 - 1/Q)\alpha)$-approximation for splittable CVRP, where $\alpha$ is the approximation ratio for TSP. Essentially the same algorithm implies a $(2 + (1 - 2/Q)\alpha)$-approximation for unsplittable CVRP \cite{ALTINKEMER1987149}. These stood as the best known bounds until recently, when Blauth et al. \cite{Vygen} showed that given a TSP approximation $\alpha$, there is an $\eps > 0$ such that there is an $(\alpha + 2 \cdot (1 - \eps))$-approximation algorithm for CVRP. For $\alpha = 3/2$, they showed $\eps > 1/3000$. They also showed a $(\alpha + 1 - \eps)$-approximation algorithm for unit demand CVRP and splittable CVRP. 
+
+For the case of trees, Labbé et al. \cite{Labbe-Mercure} showed splittable CVRP is NP-hard and Golden et al. \cite{Golden-Wong} showed unsplittable version is APX-hard and hard to approximate better than 1.5. For splittable CVRP (again on trees), Hamaguchi et al. \cite{Hamaguchi-Katoh} defined a lower bound for the cost of the optimal solution and gave a 1.5 approximation with respect to the lower bound. Asano et al. \cite{stoc/AsanoKTT97} improved the approximation to $(\sqrt{41} - 1)/4$ with respect to the same lower bound and also showed the existence of instances whose optimal cost is exactly 4/3 times the lower bound. Becker \cite{Becker18} gave a 4/3-approximation with respect to the  lower bound. Becker and Paul \cite{Becker-Paul-Bricriteria} showed a $(1, 1+ \eps)$-bicriteria polynomial-time approximation scheme for splittable CVRP in trees, i.e. a PTAS but the capacity of every tour is up to $(1+\eps)Q$.
+
+Das and Mathieu \cite{Das-Mathieu} gave a quasi-polynomial-time approximation scheme (QPTAS) for CVRP in the Euclidean plane ($\mathbb{R}^2$). A PTAS for when $Q$ is $O(\log n/\log \log n)$ or $Q$ is $\Omega(n)$ was shown by Asano et al. \cite{stoc/AsanoKTT97}. A PTAS for Euclidean plane $\mathbb{R}^2$ for all moderately large values of $Q \le 2^{\log^\delta n}$, where $\delta = \delta(\eps)$, was shown by Adamaszek et al \cite{AdamaszekCL09}, building on the work of Das and Mathieu \cite{Das-Mathieu}, and using it as a subroutine. For high dimensional Euclidean spaces $\mathbb{R}^d$, Khachay et al. \cite{Khachay-PTAS} showed a PTAS when $Q$ is $O(\log^{1/d}n)$. For graphs of bounded doubling dimension, Khachay et al. \cite{Khachay-moderatenumer} gave a QPTAS when the number of tours is $\polylog(n)$ and Khachay et al.  \cite{Khachay-moderatecapacity} gave a QPTAS when $Q$ is $\polylog(n)$.
+
+The following results are all for when $Q$ is a fixed. CVRP is APX-hard in general metrics and is polynomial-time solvable on trees. There exists a PTAS for CVRP in the Euclidean plane ($\mathbb{R}^2$) (again for when $Q$ is fixed) as shown by Khachay et al. \cite{Khachay-PTAS}. A PTAS for planar graphs was shown by Becker et al. \cite{PlanarPTAS-Klein} and  a QPTAS for planar and bounded-genus graphs was shown by Becker et al. \cite{QPTAS-Planar-boundedgenus}.  A PTAS for graphs of bounded highway dimension and an exact algorithm for graphs with treewidth with running time $O(n^{\text{tw}Q})$ was shown by Becker et al \cite{Becker-boundedhighway}.  Cohen-Addad et al. \cite{Klein-minorfree} showed an efficient PTAS for graphs of bounded-treewidth, an efficient PTAS for bounded highway dimension, an efficient PTAS for bounded genus metrics and a QPTAS for minor-free metrics. Again, note that these results are
+all under the assumption that $Q$ is fixed.
+
+So aside from the QPTAS of \cite{Das-Mathieu} for $\mathbb{R}^2$ and subsequent slight generalization of \cite{AdamaszekCL09} no approximation scheme is known for CVRP on any non-trivial metrics for arbitrary values of $Q$ (even for trees). Standard ways of
+extending a dynamic programs for Euclidean metrics to bounded doubling metrics do not seem to work to extend the results of
+\cite{Das-Mathieu} to doubling metrics in quasi-polynomial time.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Overview of our technique}
+We start by presenting a QPTAS for CVRP on trees and then extend the technique to graphs of bounded
+treewidth.
+Our main technique to design approximation scheme for CVRP is to show the existence of a near optimum solution where the sizes of the partial tours going past any node of the tree can be partitioned into
+only poly-logarithmic many classes. This will allow one to use dynamic programming to find a low cost solution. A simple rounding of tour sizes to some threshold values (e.g. powers of $(1+\eps)$) only works (with some care) to achieve a
+bi-criteria approximation as any under estimation of tour sizes may result in tours that are violating the capacities. To achieve a true approximation (without capacity violation) we show how we can break the tours of an optimum solution into "top" and "bottom" parts at any node $v$ (the bottom part of the tour being the part inside the subtree  and then swap the bottom parts of tours with the bottom parts of other tours which are smaller, and then "round them up" to the nearest value from a set of poly-logarithmic threshold values. This swapping creates enough room to do the "round up" without violating the capacities. However, this will cause a small fraction of the vertices to become "not covered", we call them  orphant nodes. We will show how we can randomly choose some tours of the optimum and add them back to the solution (at a small extra cost) and use these extra tours (after some modifications) to cover the orphant nodes. There are many details along the way. For instance, we treat the demand of each node as a token to be picked up by a tour. To ensure partial
+tour sizes are always from a small (i.e. poly-logarithmic) size set, we add extra tokens over the nodes. 
+Also, for our QPTAS to work we need to bound the height of the tree. We show how we can reduce the height of the tree to poly-logarithmic at a small loss using a height reduction lemma that might prove useful for other vehicle routing problems.
+
+The technique of QPTAS for trees then can be extended to graphs of bounded treewidth and also graphs of bounded doubling dimension; prove the existence of a similar near optimum solution and find one using dynamic program. Or one can use the known results for embedding of graphs of bounded doubling dimension into graphs of small treewidth.
+Many of the proofs are deferred to the full version.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Preliminaries}
+Recall that an instance $\calI$ to CVRP is a graph $G = (V,E)$, where $w(e)$ is the cost or weight of edge $e \in E$ and $Q$ is the capacity of the vehicle. Each tour $\calT$ is a walk over some nodes of $G$. We say $\cal T$ "covers" node $v$ if it serves the demand at node $v$. For the unit demand CVRP, it is easier to think of the demand of each node $v$ as being a token on $v$ that must be picked up by a tour. We can generalize this and assume each node $v$ can have multiple tokens and the total number of tokens a tour can pick is most $Q$ (possibly
+from the same or different locations). Note that each tour might visit vertices without picking any token there. 
+The goal is to find a collection of tours of minimum total cost such that each token is picked up (or say covered) by some tour. 
+We use $\OPT(G)$ or simply $\OPT$ to refer to an optimum solution of $G$, and $\opt$ to denote the value of it. Fix an optimal solution $\OPT$. For any edge $e$ let $f(e)$ denote the number of tours travelling edge $e$ in $\OPT$;
+so $\opt=\sum_e w(e)\cdot f(e)$.
+
+% \subsection{Total number of tokens and tours}
+ First we show the demand of each node is bounded by a function of $Q$. And then,
+using standard scaling and rounding and at a small loss, we show we can assume the edge weights are polynomially bounded (in $n$).   Given an instance for splittable CVRP with $n$ nodes and capacity $Q$, it is possible that the demand $d(v) > Q$ for some node $v$. From the work of Adamaszek et al \cite{AdamaszekCL09}, we will show how we can assume that the demand at each node $v$ satisfies $1 \le d(v) < nQ$. Adamaszek et al \cite{AdamaszekCL09} defined a \emph{trivial} tour to be a tour which picks up tokens from a single node in $T$ and a tour is \emph{non-trivial} if the tour picks up tokens from at least two nodes in $T$. They defined a \emph{cycle} to be a set of tours $t_1,\ldots, t_m (m \ge 2)$ and a set of nodes $\ell_1, \ell_2, \ldots, \ell_m, \ell_{m+1} = \ell_1$ such that each tour $t_i$ covers locations $\ell_i$ and $\ell_{i+1}$ and the origin is not considered as a node in $\ell_1, \ldots, \ell_m$.  They showed in Lemma 1 of \cite{AdamaszekCL09} that there is an optimal solution in which there are no cycles. Since there are no 2-cycles, there are no two tours which cover the same pair of nodes. So there is an optimal solution such that there are at most $n$ non-trivial tours (as argued in \cite{AdamaszekCL09}). So putting aside trivial tours (each picking up $Q$ tokens at a node), we can assume we have a total of at most $nQ$ tokens and in particular each node has at most this many tokens. Without loss of generality, we assume we have removed as many trivial tours as we can so that each node has at most $nQ$ demands (for a total of $n^2Q$ demands).
+We can also assume there is at most one tour in $\OPT$ covering at most $Q/2$ demand. If there are at least two tours $\calT_1$ and $\calT_2$ covering less than $Q/2$ demand, they can be merged into a single tour at no additional cost. Since the total demand is at most $n^2Q$, the total number of tours in the optimal solution is at most $n^2Q/(Q/2) = 2n^2$. 
+  
+  %\subsection{Poly$(n)$ ounded edge weights}
+Now we scale edge weights to be polynomially bounded.
+Observe that each tour in $\OPT$ traverses each edge $e$ at most once in each direction, so at most twice. 
+Suppose we have guessed the largest edge weight that belongs to $\OPT$ (by enumerating over all possible such guesses) and have removed any edge with weight larger. Let $W=\max_{e\in E} w(e)$ be the largest edge which clearly is used at least twice by $\OPT$ (since for each node $v$ with zero demands in $T_v$ we can delete the subtree $T_v$).
+Suppose we build instance $\calI'$ by rounding up the weight of each edge $e$ to be maximum of
+$w(e)$ and $\eps W/4n^4$. Since there are a total of at most $2n^2$ tours in $\OPT$ and each edge
+is traversed at most twice by each tour, and there are at most $n^2$ edges,
+the cost of solution $\OPT$ in $\calI'$ is at most
+$\opt+4n^2\cdot n^2\cdot\frac{\eps W}{4n^4} \leq (1+\eps )\opt$. Note that the ratio of maximum to minimum edge weight in $\calI'$ is $4n^4/\eps$, but the edge weights are not necessarily integer.
+Now suppose we scale the edge weights so that the minimum edge weight is 1 and the maximum edge weight is $4n^4/\eps$ and
+then scale them all by $1/\eps$, and then round each one up to the nearest integer.
+Note that by this rounding to the nearest integer, 
+the cost of each edge is increased by a factor of at most $1+\eps$, so the cost of an optimum solution in
+the new instance is at most $(1+\eps)(1+\eps)=(1+O(\eps))$ factor larger than before rounding while the edge weights are all polynomially bounded integers.
+So from now on we assume we have this property for the given instance at a small loss.
+
+
+%For each edge $e$, let $f^+(e)$ denote 
+%the number of tours passing through $e$ in $\OPT$ in one direction and $f^-(e)$ denote the number of tours passing through $e$ in $\OPT$ in the reverse direction. The contribution of edge $e$ to the optimal solution is $w(e)\cdot (f^+(e) + f^-(e))$, so $\opt = \sum_{e \in E}  w(e) \cdot (f^+(e) + f^-(e))$. Note that if $G$ is a tree, every tour visiting a subtree rooted at $v$, $T_v$ would have to enter and exit $T_v$ through the parent edge of $v$, $e$; so $f^+(e) = f^-(e)$. For the case of trees, we can denote $f(e)$ to be the number of tours entering and exiting edge $e$ and write $\opt = \sum_{e \in E} 2 \cdot w(e) \cdot f(e)$. \\ \\
+%We can assume the costs of the edges are between $1$ and $n^4/\eps$ at an additional cost of $\eps \opt$ by the following. Let $W = \ma{e \in E} w(e)$ be the maximum cost amongst all edges. We will create a new instance $G'$ by rounding up the cost of every edge to be at least $\frac{\eps^2 W}{n^2}$. Let $w'(e)$ be the extra cost added to each edge when we round up its cost. Recall $\opt = \sum_{e \in E} w(e) \cdot (f^+(e) + f^-(e))$. Since $|E| < n^2$, we can enumerate or guess the weight of the largest edge used in $\OPT$, say $W$, and delete all edges having cost/weight later than $W$.  We will use the fact that $f^+(e) \le n$ and $f^-(e) \le n$ since there are at most $n$ tours. Note that $|E| < n^2$ and $W \le \opt$. Let $\opt(G')$ denote the cost of the optimal solution to the new instance $G'$. 
+%\begin{equation*}
+%    \begin{split}
+%        \opt(G') & \le \sum_{e \in E} (w(e) + w'(e)) \cdot (f^{in}(e) + f^{out}(e)) \\
+%                & \le \sum_{e \in E} w(e) \cdot (f^{in}(e) + f^{out}(e)) + \sum_{e \in E} %\frac{\eps^2 W}{4n^4} (f^{in}(e) + f^{out}(e)) \\ 
+%                & \le \opt + \sum_{e \in E} \frac{\eps^2 W}{4n^4} \cdot 4n^2 \\
+%                & < \opt + \frac{\eps^2 W}{4n^4} \cdot 4n^2 \cdot n^2   \\ 
+%                & = \opt + \eps^2 W \\ 
+%                & < (1 + \eps)\opt.
+%    \end{split}
+%\end{equation*}
+%We showed that by rescaling the edge cost, the total cost of the solution increases by at most $\eps \cdot \opt$. Note that for any edge $e$, 
+%$$\frac{\eps^2 W}{n^4} \le w(e) + w'(e) \le W. $$
+% The ratio between the maximum edge cost in $G'$ and the minimum edge cost in $G'$ is at most $\frac{n^4}{\eps^2}$s, we can rescale the weights so the the weight of an edge is between $1$ and $\frac{n^4}{\eps^2}$. However, the weights of the edges in $G'$ might not be integral. We will create a new instance $G''$ and show we can assume the weights are integral and in the range $[1, n^4/\eps^2]$ at a small loss of $\eps$ times the cost of the optimal solution. Let the first bucket be the set of edges lying in the range $[1, \ldots, \frac{1}{\eps})$ and let the $i$ bucket be the set of edges lying in the range $[\frac{i-1}{\eps}, \frac{i}{\eps})$. In the new instance $G''$, for any edge in the first bucket, we will round down the weight of the edge to 1 and for any edge in the $i$-th bucket, we will round down the weight of the edge to $\lceil \frac{i-1}{\eps} \rceil$. Let $w_{G'}(e)$ and $w_{G''}(e)$ be the weight of edge $e$ in instances $G'$ and $G''$. Since we are rounding down the weight of the edges in $G''$, we have $w_{G'}(e) \le w_{G''}(e) + \frac{1}{\eps}$. For any tour $\calT$, let $\cost_{\calT}(G'')$ denote the cost of $\calT$ in instance $G''$. Since the number of edges used by $\calT$ is less than $n^2$, we have $\cost_{\calT}(G') < \cost_{\calT}(G'') + \frac{n^2}{\eps} $, so clearly $\opt(G'') \le \opt(G')$. Recall $\frac{n^4}{\eps^2}\le \opt(G')$. Since there are at most $2n^2$ tours in the optimal solution, we can show that cost of the optimal solution of $G'$ and $G''$ differ by at most an $\eps$ fraction. Let $\OPT''$ be the optimal solution for instance $G''$. Let $\cost_{\OPT''}(G')$ denote the cost of using the solution $\OPT''$ for the instance $G'$, then we have  
+% $$\cost_{\OPT''}(G') < \opt(G'') + 2n^2 \cdot \frac{n^2}{\eps} = \opt(G'') + \frac{2n^4}{\eps} = \opt(G'') + 2\eps \cdot \opt(G'') = (1 + 2\eps)\opt(G''). $$ 
+% For an appropriate choice of $\eps$, we can find an instance $G''$ such that edges in $G''$ are integral in the range $[1, \frac{n^4}{\eps^2}]$ and has the property that the cost of the set of optimal set of tours in $G''$ lifted to $G$ would have cost $(1 + \eps)\opt(G)$. \\ \\
+% We will use $d_G(u,v)$ to denote the shortest path cost from $u$ to $v$ in graph $G$. Let $d_{\max} = \ma{u,v \in V(G), u \neq v} d_G(u,v)$, $d_{\min} = \mi{u,v \in V(G), u \neq v} d_G(u,v)$ and we will denote the aspect ratio by $\Delta = \frac{d_{\max}}{d_{\min}}$. Since the edge costs are are integral and between$[1, \frac{n^4}{\eps^2}]$ , $\Delta = \frac{n^4}{\eps^2}$ and $\log \Delta \le 4  \log\br{\frac{n}{\eps}}$. \\ \\
+
+
+We will use the following two simplified version of the Chernoff Bound \cite{Mitzenmacher} in our analysis. 
+\begin{lemma}[\bf Chernoff bound]
+Let $Y = \sum_{i = 1}^n Y_i$ where $Y_i = 1$ with probability $p_i$ and 0 with probability $1- p_i$, and all $Y_i$'s are independent. With $\mu = \Ex{Y}$,  $\Prob{Y > 2\mu} \le e^{-\mu/3}$
+and $\Prob{Y < \frac{\mu}{2}} \le e^{-\mu/8}.$
+\end{lemma}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+\section{QPTAS for CVRP on Trees}
+In this section we prove Theorem \ref{thm:tree}. 
+We will first prove a structure theorem which describes structural properties of a near-optimal solution. We will leverage these structural properties and use dynamic programming to compute a near-optimal solution. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Structure Theorem}
+
+Our goal in this section is to show the existence of a near optimum solution (i.e. one with cost $(1 + O(\eps))\opt$) with
+certain properties which makes it easy to find one using dynamic programming.
+More specifically we show we can modify the instance $\calI$ to instance $\calI'$ on the same tree $T$ where each node has $\geq 1$
+tokens (so possibly more than 1) and change $\OPT$ to a solution $\OPT'$ on $\calI'$ where cost of $\OPT'$ is at most
+$(1+O(\eps))\opt$. Clearly the tours of $\OPT'$ form a capacity respecting solution of $\calI$ as well (of no more cost).
+%In this section, we will characterize properties of a near-optimal solution to our instance having cost $(1 + O(\eps))\opt$. 
+
+A starting point in our structure theorem is to show that given input tree $T$, for any $\epsilon>0$, we can build another tree $T'$ of height $O(\log^2 n/\epsilon)$ such that the cost of an
+optimum solution in $T'$ is within $1+\epsilon$ factor of the optimum solution to $T$. We can lift a near-optimum solution to $T'$ into a near-optimum solution of $T$. 
+We can show the following (see the full version): 
+%in Subsection \ref{sec:heightreduction}
+
+\begin{theorem}\label{thm:height-red}
+Given a tree $T$ as an instance of CVRP and for any fixed $\epsilon>0$, one can build a tree $T'$ with height $\delta\log^2 n/\epsilon$, for some fixed $\delta>0$, such that $\opt(T')\leq \opt(T)\leq (1+\epsilon)\opt(T')$. Furthermore, any feasible solution for $T'$ can be transformed into a feasible solution of $T$ while increasing the cost by at most a factor $(1+\epsilon)$.
+\end{theorem}
+
+So for the rest of this section we assume our input tree has height $O(\log^2 n/\eps)$ at a loss of (yet another) $1+\eps$ in 
+approximation ratio.
+
+\subsubsection{Overview of the ideas}
+Let us give a high level idea of the Structure theorem. In order to do that it is helpful to start from a simpler task of developing a bi-criteria approximation scheme\footnote{Note that \cite{Becker-Paul-Bricriteria} already presents a bicriteria PTAS for CVRP on trees.
+We present a simple bi-criteria QPTAS here as it is our starting point towards a true approximation scheme.}
+
+
+Let $\calT$ be a tour in $\OPT$ and $v$ be a node in $T$. The \textbf{coverage} of $\calT$ with respect to $v$ is the number of tokens picked by $\calT$ in the subtree $T_v$ (subtree rooted at $v$).
+Suppose a tour $\calT$ visits node $v$. We refer to the subtour of $\calT$ in $T_v$ (subtree rooted at $v$) as a partial tour.
+
+%the \textbf{bottom part} of $t$ in $T_v$. Likewise, we refer to the subtour of $t$ outside $T_v$ as the \textbf{top part} of $t$. We refer to both the bottom part and the top part as partial tours of $t$ at $v$. For a tour $t$ at node $v$, we will refer to the top part of $t$ at $v$ to be $t^\tope_v$. It is always true that the top part of a tour $t$ at $v$ is capacity respecting with the partial tour of $t$ covering $T_v$ that is, $t^\tope_v + t \le Q$. 
+%Suppose we have edge disjoint subtrees $T_1, \ldots, T_k$ and a tour $t$, we can similarly define the bottom part of $t$ in $T_1, \ldots, T_k$ as the subtour of $t$ in $T_1, \ldots, T_k$ and the top part as the subtour of $t$ outside $T_1, \ldots, T_k$.  \\ \\ 
+
+{\bf A Bicriteria QPTAS:} For simplicity, assume $Q=Poly(n)$ and that $T$ is binary (this is not crucial in the design of the DP). 
+A subproblem would be based on a node $v\in T$ and the structure of partial tours going into $T_v$ to pick up tokens in $T_v$
+at minimum cost.
+In other words, if one looks at the sections of tours of an optimum solution that cover tokens of $T_v$, what are the capacity profiles of those sections? For a vector $\tvec$ with $Q$ entries, where $\tvec_i$ (for each $1 \le i \le Q)$ is the number of partial tours going down $T_v$ which pick $i$ tokens (or their capacity for that portion is $i$), entry $\abold[v, \tvec]$ would store the minimum cost of covering $T_v$ with (partial) tours whose capacity profile is given by $\tvec$. It is not hard to fill this table's entries using a simple recursion based on the entries of children of $v$. So one can solve the CVRP problem "exactly" in time $O(n^{Q+1})$. We can reduce the time complexity by storing "approximate" sizes of the partial tours for each $T_v$.
+So let us "round" the capacities of the tours into $O(\log Q/\epsilon)$  buckets, where bucket $i$ represents capacities that are in
+$[(1+\eps)^{i-1},(1+\eps)^i)$. More precisely, consider threshold-sizes $S = \{\sigma_1, \ldots, \sigma_\tau \}$ where: for $1\leq i\leq 1/\epsilon$, $\sigma_i=i$, and for each value $i>1/\epsilon$: $\sigma_i = \sigma_{i-1}(1 + \eps)$ and $\sigma_\tau = Q$. Note 
+that $|S|=O(\log Q/\epsilon)=O(\log n/\eps)$. Suppose we allow each tour to pick up to $(1+\epsilon)Q$
+tokens. If it was the case that each partial tour for $T_v$ (i.e. part of a tour that enters/exits $T_v$) has a capacity that is also threshold-size (this may not be true!) then the DP table entries
+would be based on vectors $\tvec$ of size $O(\log n/\epsilon)$, and the run time would be quasi-polynomial. One has to note that
+for each subproblem of the optimum at a node $v$ with children $u,w$, even if the tour sizes going down $T_v$
+were of threshold-sizes, the partial tours at $T_u$ and $T_w$ do not necessarily satisfy this property.
+
+To extend this to a proper bicriteria $(1+\epsilon)$-approximation we can define the thresholds based on powers of 
+$1+\epsilon'$ where $\epsilon'=\frac{\epsilon^2}{\log^2 n}$ instead: let 
+$S = \{\sigma_1, \ldots, \sigma_\tau \}$ where $\sigma_i=i$ for $1\leq i\leq 1/\epsilon'$, and 
+for $i>1/\epsilon'$ we have $\sigma_i = \sigma_{i-1}(1 + \eps')$, and $\sigma_\tau = Q$. So now 
+$|S|=O(\log^2 n\cdot\log Q/\epsilon)=O(\log^3 n/\epsilon^2)$ when $Q = \poly(n)$. For each vector $\tvec$ of size $\tau$, where $0\leq t_i\leq n$
+is the number of partial tours with coverage/capacity $\sigma_i$, let $A[v,\tvec]$ store the minimum cost of a collection of
+(partial) tours covering all the tokens in $T_v$ whose capacity profile is $\tvec$, i.e. the number of
+tours of size in $[\sigma_i,\sigma_{i+1})$ is $\tvec_i$. To compute the solution for $A[v,\tvec]$, 
+given all the solutions for its two children $u,w$ we can do the following: consider two partial solutions,  
+$A[u,\tvec_u]$ and $A[w,\tvec_w]$. One can combine some partial tours of $A[u,\tvec_u]$ with some partial tours of $A[w,\tvec_w]$,
+i.e. if ${\cal T}_u$  is a (partial) tour of class $i$ for $T_u$ and ${\cal T}_w$ is a partial tour of class $j$ for $T_w$
+then either these two tours are in fact part of the same tour for $T_v$, or not. In the former case, the partial tour
+for $T_v$ obtained by the combination of the two tours will have cost $w({\cal T}_u)+w({\cal T}_w)+2w(vu)+2w(vw)$ and capacity
+$t_i+t_j$ (or possibly $t_i+t_j+1$ if this tour is to cover $v$ as well). 
+In the latter case, each of ${\cal T}_u$ and ${\cal T}_w$ extend (by adding edges $vu$ and $vw$, respectively) into
+partial tours for $T_v$ of weights $w({\cal  T}_u)+2w(vu)$ and $w({\cal  T}_w)+2w(vw)$ (respectively)  and capacities $t_i$
+and $t_j$ (or perhaps $t_i+1$ or $t_j+1$ if one of them is to cover $v$ as well). In the former case, since $t_i+t_j$ is not
+a threshold-size, we can round it (down) to the nearest threshold-size. We say partial solutions for $T_v$, $T_u$ and $T_w$
+are consistent if one can obtain the partial solution for $T_v$ by combining the solutions for $T_v$ and $T_w$. Given
+$A[v,\tvec]$, we consider all possible subproblems $A[u,\tvec_u]$ and $A[w,\tvec_w]$ that are consistent and take the minimum cost among
+all possible ways to combine them to compute $A[v,\tvec]$. 
+Note that whenever we combine two solutions, we might be rounding
+the partial tour sizes down to a threshold-size, so we "under-estimate" the actual tour size by a factor
+of $1+\epsilon'$ in each subproblem calculation. Since the height of the tree is $h=O(\log^2 n/\epsilon)$, the actual error in the tour sizes computed at the root is at most $(1+\epsilon')^h=(1+O(\epsilon))$, so each tour will have size at most $(1+O(\epsilon))Q$. The time to compute each entry $A[v,\tvec]$ can be upper bounded
+by $n^{O(\log^3 n/\epsilon^2)}$ and since there are $n^{O(\log^3 n/\epsilon^2)}$ subproblems, 
+the total running time of the algorithm will be $n^{O(\log^3 n/\epsilon^2)}$. We can handle the setting where the tree is not binary  (i.e. each node $v$ has more than two children) by doing an inner DP, like a knapsack problem over children of $v$
+(we skip the details here as we will explain the details for the actual QPTAS instead). 
+
+%%%%%%%%%%%%%%%%%%%%%
+\textbf{Going from a Bicriteria to a true QPTAS:}
+Our main tool to obtain a true approximation scheme for CVRP in trees is to show the existence of a near-optimum solution where
+the partial solutions for each $T_v$ have sizes that can be grouped into polyogarithmic many buckets as in the case of bi-criteria solution. 
+Roughly speaking, starting from an optimum solution $\OPT$, we follow a bottom-up scheme and modify $\OPT$ by changing the solution at each $T_v$: 
+at each node $v$, we change the structure of the tours going down $T_v$ (by adding a few extra tours from the depot) and
+also adding some extra tokens at $v$ so that the
+partial tours that visit $T_v$ all have a size from one of polyogarithmic many possible sizes (buckets)
+while increasing the number and the cost of the tours by a small factor. We do this by duplicating some of the tours
+that visit $T_v$ while changing parts of them that go down in $T_v$ and adding some extra tokens at $v$:
+each tour still picks up at most a total of $Q$ tokens and the size (i.e. the number of tokens picked)
+for each partial tour in the subtree $T_v$ is one of $O(\log^4 n/\eps^2)$ many possible values, while the total cost
+of the solution is at most $(1+O(\eps))\opt$.
+
+To achieve what we have outlined above, suppose $T$ has height $h$ (where $h=\delta\log^2 n/\epsilon$). 
+Let $V_\ell$ (for $1\leq \ell \leq h$) be the set of vertices at level
+$\ell$ of the tree where $V_1=\{r\}$ and for each $\ell\geq 2$, $V_\ell$ are those vertices whose parent is in level $\ell-1$. For every tour $\calT$ and every level $\ell$, the top part of $\calT$ w.r.t. $\ell$ (denoted by $\calT_\ell^{top}$), is the part of $\calT$ induced by the vertices in $V_1\cup\ldots\cup V_{\ell-1}$ and the bottom part of $\calT$ are the partial tours of $\calT$ in the subtrees rooted at a vertex in $V_\ell$. Note that if we replace each partial tour of
+the bottom part of a tour $\calT$ with a partial tour of a smaller capacity, the tour remains a capacity respecting tour.
+Consider a node $v$ (which is at some level $\ell$) and suppose we have $n_v$ partial tours covering $T_v$. Let the $n_v$ tours in increasing order of their coverage be $t_{1}, \ldots, t_{n_v}$. Let $|t_i|$ be the coverage of tour $t_i$ (so $|t_i| \le |t_{i+1}|$). 
+For a $g$ (to be specified later), we add enough empty tours to the beginning of this list so that the number of tours is a multiple of $g$. Then, we will put these tours into groups $G^v_{1}, \ldots, G^v_{g}$ of equal sizes by placing
+the $i$'th $ n_v/g $ partial tours into $G^v_i$.
+Let $h^{v,max}_i$ ($h^{v,min}_i$) refer to the maximum (minimum) size of the tours in $G^v_{i}$. This grouping is similar to the
+grouping in the asymptotic PTAS for the classic bin-packing problem.
+Note that $h^{v,max}_{i} \le h^{v,min}_{i+1}$. 
+
+Consider a mapping $f$ where it maps each partial tour in $G^v_i$ to one in $G^v_{i-1}$ in the same order, i.e. the largest partial tour in $G^v_{i}$ is mapped to the largest in $G^v_{i-1}$, the 2nd largest to the 2nd largest and so on, for $i>1$ (suppose $f(.)$ maps all the tours of $G^v_1$ to empty tours). 
+Now suppose we modify $\OPT$ to  $\OPT'$ in the following way: for each tour $\calT$ that has a partial
+tour $t\in G^v_i$, replace the bottom part of $\calT$ at $v$ from $t$ to $f(t)$ (which is in $G^v_{i-1}$).
+Note that by this change, the size of any tour like $\calT$ can only decrease.
+Also, if instead of $f(t)$ we had replaced $t$ with a partial
+tour of size $h^{v,max}_{i-1}$, it would still form a capacity respecting solution with the rest of $\calT$, 
+because $h^{v,max}_{i-1}\leq h^{v,min}_i\leq |t|$. The only problem is that those tokens in $T_v$ that were picked
+by the partial tours in $G^v_g$ are not covered by any tours; we call these {\em orphant} tokens. 
+For now, assume that we add a few extra tours to $\OPT$ at low cost such that they cover all the orphant tokens of $T_v$.
+If we have done this change for all vertices $v\in V_\ell$, then for every  tour like $\calT$,
+the partial tours of $\calT$ going down each $T_v$ (for $v\in V_\ell$) are replaced with partial tours from a group 
+one index smaller.
+This means that, after these changes, 
+for each tour $\calT$ and its (new) partial tour $t\in G^v_i$, if we add $h^{v,max}_i-|t|$ extra tokens at $v$ to be picked up by $t$ then each partial tour has size exactly the same as the maximum size of its group without violating the capacities.
+This helps us store a compact "sketch" 
+for partial solutions
+at each node $v$ with the property that the partial solution can be extended to a near optimum one.
+
+How to handle the case of orphant tokens (those picked by the tours in the the last groups $G^v_g$ before the swap)? 
+We will show that if $n_v$ is sufficiently large (at least polylogarithmic) then if we sample a small fraction of the tours of the optimum at random and add two copies of them (as extra tours), they
+can be used to cover the orphant tokens. So overall, we show how one can modify $\OPT$ by adding some extra tours to it
+at a cost of at most $\eps\cdot\opt$ such that: each node $v$ has $\geq 1$ tokens and 
+the sketch of the partial tours at each node $v$ is compact (only polyogarithmic many possible sizes) while the dropped tokens overall can be covered by the extra tours.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Changing $\OPT$ to a near optimum structured solution}
+We will show how to modify the optimal solution $\OPT$ to a near-optimum solution $\OPT'$ for a new instance $\calI'$
+which has $\geq 1$ token at each node with certain properties. 
+We start from $\ell=h$ and let $\OPT'=\OPT_\ell=\OPT$ and for decreasing values of $\ell$, we will show how
+to modify $\OPT_{\ell+1}$ to
+obtain $\OPT_{\ell}$. To obtain $\OPT_{\ell}$ from $\OPT_{\ell+1}$ we keep the partial tours at levels $\geq \ell$ the same as
+$\OPT_{\ell+1}$ but we change the top parts of the tours and how the top parts can be matched to the partial tours at 
+level $\ell$ so that together they form capacity respecting solutions (tours of capacity at most $Q$) at low cost.
+
+First, we assume that $\OPT$ has at least $d\log n$ many tours for some sufficiently large $d$. Otherwise,
+if there are at most $D=d\log n$ many tours in $\OPT$ we can do a simple DP to compute $\OPT$:
+for each node $v$, we have a sub problem $A[v,T^v_1,\ldots,T^v_D]$ which stores the minimum cost solution
+if $T^v_i$ is the number of vertices the $i$'th tour is covering in the subtree $T_v$. It is easy to fill this table in
+time $O(n^D)$ having computed the solutions for its children.
+
+\begin{definition}
+Let \textbf{threshold values} be $\{\sigma_1, \ldots, \sigma_\tau \}$ where $\sigma_i=i$ for $1\leq i\leq \lceil 1/\epsilon\rceil$,
+ and for $i>\lceil 1/\epsilon\rceil$ we have $\sigma_i = \lceil\sigma_{i-1}(1 + \eps)\rceil$, and $\sigma_\tau = Q$. 
+So $\tau=O(\log Q/\epsilon)$.
+\end{definition}
+
+We consider the vertices of $T$ level by level, starting from nodes in level $V_{\ell=h-1}$
+and going up, modifying the solution $\OPT_{\ell+1}$ to obtain $\OPT_{\ell}$. 
+
+\begin{definition}
+For a node $v$, the $i$-th \text{bucket}, $b_i$, contains the number of tours of $\OPT_\ell$ having coverage between $[\sigma_i, \sigma_{i+1})$ tokens in $T_v$ where $\sigma_i$ is the $i$-th threshold value. We will denote a node and bucket by a pair $(v,b_i)$. Let $n_{v,i}$ be the number of tours in bucket $b_i$ of $v$. 
+\end{definition}
+
+
+\begin{definition}
+A bucket $b$ is \textbf{small} if the number of tours in $b$ is at most $\alpha \log^3 n / \eps^2$ and is \textbf{big} otherwise,
+for a constant $\alpha \ge \max\{1, 12\delta\}$.
+\end{definition}
+
+
+Note that for every node $v$ and bucket $b_i$ and for any two partial tours in $b_i$, the ratio of their size (coverage)
+is at most $(1 + \eps)$. We will use this fact crucially later on.
+While giving the high level idea earlier in this section, we mentioned that we can cover the orphant 
+tokens at low cost by using a few extra tours at low cost. For this to work, we need to assume that the ratio of the maximum size tour to the minimum size tour 
+in all groups $G^v_1,\ldots,G^v_g$ is at most $(1 + \eps)$. To have this property, 
+we need to do the grouping described for each vertex-bucket pair $(v,b_i)$ that is big. 
+
+For each $v \in V_\ell$, let $(v,b_i)$ be a vertex-bucket pair. If $b_i$ is a small bucket, we do not modify the partial tours in it. 
+If $b_i$ is a big bucket, we create groups $G^v_{i,1}, \ldots, G^v_{i,g}$ of equal sizes 
+(by adding null/empty tours if needed to $G^v_{i,1}$ to have equal size groups), for $g = (2\delta \log n)/\eps^2 $; so 
+|$G^v_{i,j}|=\lceil n_{v,i}/g\rceil$. We also consider a mapping $f$ (as before) which maps (in the same order) the 
+tours $t\in G^v_{i,j}$ to the tours in $G^v_{i,j-1}$ for all $1<j\leq g$.  We assume the mapping maps tours of $G^v_{i,1}$ to 
+empty tours. 
+Let the size of the smallest (largest) partial tour in $G^v_{i,j}$ be $h^{v,min}_{i,j}$ ($h^{v,max}_{i,j}$). Note that
+$h^{v,max}_{i,j-1}\leq h^{v,min}_{i,j}$.
+Consider the set ${\bf T}_\ell$ of all the tours $\calT$ in $\OPT_\ell$ that visit a vertex in one of the lower levels $V_{\geq \ell}$. Consider an arbitrary such tour $\calT$ that has a partial tour $t$ in a big vertex/bucket pair $(v,b_i)$, 
+suppose $t$ belongs to group $G^v_{i,j}$. We replace $t$ with $f(t)$ in $\calT$.
+%, and we assume the "estimate" of the tour size we keep for this new partial tour is $h^{v,min}_{i,j-1}$. 
+Note that for $\calT$, the partial tour at $T_v$ now has a size between 
+$h^{v,min}_{i,j-1}$ and $h^{v,max}_{i,j-1}$. Now, add some extra tokens at $v$ to be picked up by $\calT$ so that
+the size of the partial tour of $\calT$ at $T_v$ is exactly $h^{v,max}_{i,j-1}$; note that
+ since $h^{v,max}_{i,j-1}\leq |t|$, the new partial tour at $v$ can pick up the extra tokens without violating the capacity 
+of $\calT$. 
+If we make this change for all tours $\calT\in {\bf T}_\ell$, each partial tour of them at level $\ell$ that was in a group
+$j<g$ of a big vertex/bucket pair $(v,i)$ is replaced with a smaller partial tour from group $j-1$ of the same big vertex/bucket
+pair; after adding extra tokens at $v$ (if needed) the size is the maximum size from group $j-1$. 
+All other partial tours (from small vertex/bucket pairs) remain unchanged. Also, the total cost of the tours has not increased (in fact some now have partial tours that are empty). However, the tokens that were picked by
+partial tours from $G^v_{i,g}$ for a big vertex/bucket pair $(v,b_i)$ are now orphant. We describe how to cover them with some new tours. 
+
+One important observation is that when we make these changes, for any partial tours at vertices at lower levels ($V_{>\ell}$)
+their size remains the same. It is only the tour sizes going down a vertex at level $\ell$ that we are adjusting (by adding extra
+tokens). All other lower level partial tours remain unchanged (only their top parts may get swapped). This property holds inductively
+as we go up the tree and ensure that the lower level partial tours have one of polylogarithmic many sizes.
+More precisely, as we go up levels to compute  $\OPT_\ell$, for any vertex $v'\in V_{\ell'}$ (where $\ell'>\ell$) and any partial
+tour $\calT'$ visiting $T_{v'}$, either $|\calT'|$ belongs to a small vertex bucket pair $(v',b_{i'})$ (and so has one of
+$O(\log^3 n/\eps)$ many possible values) or if it belongs to a big
+vertex bucket pair $(v',b_{i'})$ then its size is equal to $h^{v',max}_{i',j'}$ for some group $j'$ and hence one of
+$O((\log Q\log n)/\eps^2)$ possible values.
+
+To handle (cover) orphant nodes, we are going to (randomly) select a subset of tours of $\OPT$ as "extra tours" and add them to $\OPT'$ and modify them
+such that they cover all the tokens that are now orphant (i.e. those that were covered by partial tours of $G^v_{i,g}$ for all big vertex/bucket pairs at level $\ell$).
+Suppose we select each tour $\calT$ of $\OPT$ with probability $\eps$. We make two copies of the extra tour and we designate both extra copies to one of the levels $V_\ell$ that it visits with equal probability. We call these the extra tours.
+\vspace{-1.5mm}
+\begin{lemma}\label{lem:extra-cost}
+The cost of extra tours selected is at most $4\eps\cdot\opt$ w.h.p.
+\end{lemma}
+\vspace{-1.5mm}
+
+Therefore, we can assume that the cost of all the extra tours added  is at most $4\eps\cdot\opt$.
+Let $X_\ell$ be the set of extra tours designated to level $\ell$. 
+We assume we add $X_\ell$ when we are building $\OPT_\ell$
+(it is only for the sake of analysis). For each $v\in V_\ell$ and vertex/bucket pair $(v,b_i)$, let $X_{v,i}$ be those in $X_\ell$ whose partial tour in $T_v$ has
+a size in bucket $b_i$. Each extra tour in $X_\ell$
+will not be picking any of the tokens in levels $V_{<\ell}$ (as they will be covered by the tours already in $\OPT_\ell$); 
+they are used to cover the orphant tokens created by partial tours
+of $G^v_{i,g}$ for each big vertex/bucket pair $(v,b_i)$ with $v\in V_\ell$; as described below. 
+
+%More precisely, we assume that $X_{v,i}$ are precisely a sampled set of (partial)
+%tours from those whose bottom part has size in bucket $b_i$. Each of the tours with a bottom part in $b_i$ is sampled with
+%probability $\eps$ and is designated to this level (i.e. placed in $X_{v,i}$) with probability at least $1/h$.
+%This ensures that any partial tour $\calT$ in $X_{v,i}$ also has the property that if it visits a node $v'$ at a level $\ell'>\ell$, %and if the size of the partial tour of $X_{v,i}$ going down $T_{v'}$ is size $s$ then either $s$ belongs
+%to a small vertex-bucket pair $(v',b')$ or belongs to a big vertex-bucket pair $(v',b'')$ and its size is one of the
+%group sizes. In either case $s$ is one of poly-logarithmic many possible values.
+\vspace{-1.5mm}
+\begin{lemma}\label{lem:extra}
+For each level $V_\ell$, each vertex $v\in V_\ell$ and big vertex/bucket pair $(v,b_i)$,
+w.h.p. $|X_{v,i}|\geq \frac{\eps^2}{\delta\log^2 n}\cdot n_{v,i}$.
+\vspace{-3.5mm}
+\end{lemma}
+\begin{lemma}\label{lem:extra2}
+Consider all $v\in V_\ell$, big vertex/bucket pairs $(v,b_i)$ and partial tours in $G^v_{i,g}$.
+We can modify the tours in $X_{v,i}$ (without increasing the cost) and adding some extra tokens at $v$ (if needed) so that:
+\begin{enumerate}
+\item The tokens picked up by partial tours in $G^v_{i,g}$ are covered by some tour in $X_{v,i}$, and
+\vspace{-1mm}
+\item The new partial tours that pick up the orphant tokens in $G^v_{i,g}$ 
+have size exactly $h^{v,max}_{i,g}$ and all tours still have size at most $Q$.
+\item For each (new) partial tour of $X_{v,i}$ and every level $\ell'>\ell$, the size of partial tours of $X_{v,i}$ at a
+vertex at level $\ell'$ is also one of $O(\log Q\log^3 n/\eps^3)$ many sizes.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+% Show how many extra tokens are required 
+Our goal is to use the extra tours in $X_{v,i}$ to cover tokens picked up by partial tours of $G^v_{i,g}$ and we want each extra tour in $X_{v,i}$ to cover exactly $h^{v,max}_{i,g}$ tokens. The tours in the last group, $G^v_{i,g}$, cover $\sum_{t \in G^v_{i,g}} |t|$ many tokens. Since we want each tour in $X_{v,i}$ to cover $h^{v,max}_{i,g}$ tokens, we will add $\sum_{t \in G^v_{i,g}} (h^{v,max}_{i,g} - |t|)$ extra tokens at $v$ for each vertex/bucket pair $(v,b_i)$ so that there are $h^{v,max}_{i,g}$ tokens for each partial tour in $G^v_{i,g}$.  From now on, we will assume each partial tour in a last group $G^v_{i,g}$ covers $h^{v,max}_{i,g}$ tokens.
+
+% Show how many extra tours are there compared to tours in a bucket
+We know $|G^v_{i,g}| = n_{v,i}/g = \frac{\eps^2 }{2\delta \log n} \cdot n_{v,i}$. Using Lemma \ref{lem:extra}, we know with high probability that $|X_{v,i}| \ge \frac{\eps^2 }{\delta\log^2 n} \cdot n_{v,i} =2 |G^v_{i,g}|$, so $|X_{v,i}|/|G^v_{i,g}| \ge 2$. Recall $\OPT'$ includes tours in $\OPT$ plus the extra tours in $\OPT$ that were sampled.  Let $Y_{v,i}$ denote the number of tours in vertex/bucket pair $(v,b_i)$ that were sampled, so $|X_{v,i}| = 2|Y_{v,i}|$ since we made two extra copies of each sampled tour and $|Y_{v,i}|\ge |G^v_{i,g}|$ with high probability. We will start by creating a one-to-one mapping $s : G^v_{i,g} \rightarrow Y_{v,i}$ which maps each tour in $G^v_{i,g}$ to a sampled tour in $Y_{v,i}$. We know such a one-to-one mapping exists since $|Y_{v,i}|\ge |G^v_{i,g}|$. 
+
+Let $\calT$ be a sampled tour in $Y_{v,i}$ with two extra copies of it, $\calT_1$ and $\calT_2$ in $X_{v,i}$. Let the partial tours of $\calT$ at the bottom part in $V_\ell$ be $p_1, \ldots, p_m$. We know $|\calT| \ge \sum_{i = 1}^m |p_i|$. Since $s$ is one-to-one, one partial tour from $r_k \in G^v_{i,g}$ maps to $p_j$ or no tour maps to $p_j$. If no tour maps to $p_j$, we consider the load assigned to $p_j$ to be zero. If $s(r_k) = p_j$ where  $r_k \in G^v_{i,g}$, since we added extra tokens to make each partial tour $r_k \in G^v_{i,g}$ have $h^{v,max}_{i,g}$ tokens, the load assigned to $p_j$ would be $h^{v,max}_{i,g}$. 
+
+Suppose we think of $r_1, \ldots, r_m$ as items and $\calT_1$ and $\calT_2$ as bins of size $Q$. We know each $r_i$ fits into a bin of size $Q$. Recall that for the tour $r_j$ assigned to $p_j$, we know $|r_j| \le (1 + \eps)|p_j|$ since both $r_j$ and $p_j$ are in the same group  $G^v_{i,g}$. We might not be able to fit all items $r_1, \ldots, r_m$ into a bin of size $Q$ because $\sum_{i = 1}^m|r_i| \le (1 + \eps)\sum_{i = 1}^m |p_i| \le (1 + \eps)|\calT| \le (1 + \eps)Q$. However, if we used two bins of size $Q$, we can pack the items into both bins without exceeding the capacity of either bin such that each item $r_i$ is completely in one bin. Since $\calT_1$ and $\calT_2$ are not assigned to any lower level, they have not been used to cover any tokens so far in our algorithm and they both have unused capacity $Q$. Using the bin packing analogy, we could split $r_1, \ldots, r_m$ between $\calT_1$ and $\calT_2$. We could assign $r_1, \ldots, r_j$ (for the maximum $j$) to $\calT_1$ such that $\sum_{i = 1}^j |r_i| \le Q$ and the rest, $r_{j+1}, \ldots, r_m$ to $\calT_2$. Since $\sum_{i = 1}^m |r_i| \le (1 + \eps)Q$, we can ensure we can distribute the tokens in $r_i$'s amongst $\calT_1$ and $\calT_2$ such that both $\calT_1$ and $\calT_2$ cover at most $Q$ tokens. Although there are two copies of each partial tour $p_i$ in $X_{v,i}$, according to our approach, we are using at most one of them (their coverage would be zero if they are not used). If the coverage of one of the extra partial tours is non-zero, we also showed that if it picks up tokens from a partial tour in $G^v_{i,g}$, it would pick up exactly $h^{v,\max}_{i,g}$ tokens, proving the 2nd property of the  Lemma. 
+
+Also, note that for each partial tour $r_k\in G^v_{i,g}$ and for each level $\ell'>\ell$ if $r_k$ visits a vertex $v'\in V_{\ell'}$,
+then the partial tour of $r_k$ at $T_{v'}$ already satisfies the properties that: either its size belongs to a small vertex-bucket
+pair $(v',b_i)$ (so has one of $O(\log^3 n/\eps)$ many possible values) or if it belongs to a big
+vertex bucket pair $(v',b_{i'})$ then its size is equal to $h^{v',max}_{i',j'}$ for some group $j'$ and hence one of
+$O((\log Q\log n)/\eps^2)$ possible values.
+This implies that for the extra tours of $X_{v,i}$, after we reassign partial
+tours of $G^v_{i,g}$ to them (to cover the orphant nodes), each will have a size exactly equal to $h^{v,max}_{i,g}$ at level $\ell$
+and at lower levels $V_{>\ell}$ they already have one of the $O(\log Q\log^3 n/\eps^3)$ many possible sizes. This establishes the 3rd property of the lemma.
+\end{proof} 
+
+Therefore, using Lemma \ref{lem:extra2}, all the tokens of $T_v$ remain covered by partial tours;
+those partial tours in $G^v_{i,j}$ (for $1\leq j<g$) are tied to the top parts of the tours from group $G^v_{i,j+1}$ and the
+partial tours of $G^v_{i,g}$ will be tied to extra tours designated to level $\ell$. We also add extra tokens at $v$ to be
+picked up by the partial tours of $T_v$ so that each partial tour has a size exactly equal to the maximum size of a group.
+All in all, the extra cost paid to build $\OPT_\ell$ (from $\OPT_{\ell+1}$) is for the extra tours designated to level $\ell$.
+The following theorem is an easy consequence of the previous lemmas.
+
+\begin{theorem}\label{lem:struct1} \textbf{(Structure Theorem)}
+Let $\opt$ be the cost of the optimal solution to instance $\calI$. We can build an instance $\calI'$ on the same tree $T$
+such that each node has $\geq 1$ tokens and there exists a near-optimal solution $\OPT'$ for $\calI'$
+having cost $(1 + 4\eps)\opt$ w.h.p with the following property.
+The partial tours going down subtree $T_v$ for every node $v$ in $\OPT'$ has one of $O((\log Q \log^3 n)/\eps^3)$ possible sizes.
+More specifically, suppose $(v,b_i)$ is a bucket pair for $\OPT'$. Then either:
+\begin{itemize}
+\item $b_i$ is a small bucket and hence there are at most $\alpha \log^3 n/\eps^2$ many partial tours of $T_v$ whose size is in bucket $b_i$, or
+\item $b_i$ is a big bucket; in this case there are $g = (2\delta \log n)/\eps^2 $ many group sizes in $b_i$: 
+$\sigma_i \leq h^{v,max}_{i,1}\leq \ldots\leq h^{v,max}_{i,g}<\sigma_{i+1}$ and every tour of bucket $i$ has one of these sizes. 
+\end{itemize}
+\end{theorem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Dynamic Program}
+
+In this section we complete the proof of Theorem \ref{thm:tree}. We will describe how we can compute a solution of cost at most $(1 + 4\eps)\opt$ using dynamic programming and based on the existence of a near-optimum solution guaranteed using the structure theorem.
+For each vertex/bucket pair, we do not know if the bucket is small or big, so we will consider subproblems corresponding to both possibilities. Informally, we will have a vector $\nvec \in [n]^{\tau}$ where if $i < 1/\eps$, $n_i$ keeps track of the exact number of tours of size $i$ and for $i \ge 1/\eps$, $\nvec_i$ keeps track of the number of tours in bucket $b_i$, or tours covering between $[\sigma_i, \sigma_{i+1})$ tokens. Let $o_v$ denote the total number of tokens to be picked up across all nodes in the subtree $T_v$. Since each node has at least one token, $o_v \ge |V(T_v)|$. We will keep track of three other pieces of information conditioned on whether $b_i$ is a small or big bucket. If $b_i$ is a small bucket, we will store all the tour sizes exactly. Since the number of tours in a small bucket is at most $\gamma = \alpha \log^3n /\eps^2$, we will use a vector $\tvec^i \in [n]^\gamma$ to represent the tours of a small bucket where $\tvec^i_j$ represents the size of $j$-th tour in bucket $b_i$. Suppose $b_i$ is a big bucket, there are $g = (2\delta \log n)/\eps^2 $ many tour sizes in the bucket corresponding to $n^g$ possibilities. For each big bucket $b_i$ at node $v$, we need to keep track of the following information, 
+\begin{itemize}
+    \item $\hvec^i_v \in [n]^g$ is a vector where $\hvec^i_{v,j} = h^{v, \max}_{i,j}$, which is the size of the maximum tour in group $j$ of bucket $i$ at node $v$. 
+    \item $\lvec^i_v \in [n]^g$ is a vector where $\lvec^i_{v,j}$ denotes the number of partial tours covering $h^{v, \max}_{i,j}$ tokens which lies in group $j$ of bucket $i$ at node $v$. 
+\end{itemize}
+Let $\yvec_v$ denote a configuration of tours across all buckets of $v$. 
+$$\yvec_v = [o_v, \nvec_v, (\tvec_v^1, \hvec_v^1, \lvec_v^1), (\tvec_v^2, \hvec_v^2, \lvec_v^2), \ldots, (\tvec_v^\tau, \hvec_v^\tau, \lvec_v^\tau)].$$
+Note that a bucket $b_i$ is either small or big and cannot be both, hence given $(\tvec^i_v, \hvec^i_v, \lvec^i_v)$, it cannot be the case that $\tvec^i_v \neq \vec{0}, \hvec^i_v \neq \vec{0}$ and $\lvec^i_v \neq \vec{0}$. 
+The subproblem $\abold[v, \yvec]$ is supposed to be the minimum cost collection of partial tours going down $T_v$ (to cover the tokens in $T_v$) and the cost of using the parent edge of $v$ having tour profile corresponding to $\yvec$. Our dynamic program heavily relies on the properties of the near-optimal solution in the structure theorem.  Let $v$ be a node. We will compute $A[\cdot, \cdot]$ in a bottom-up manner, computing $\abold[v, \yvec_v]$ after we have computed the entries for the children of $v$. 
+
+The final answer is obtained by looking at the various entries of $\abold[r, \cdot ]$ and taking the smallest one. First, we argue why this will correspond to a solution of cost no more than $\opt'$. We will compute our solution in a bottom-up manner. 
+
+For the base case, we consider leaf nodes. A leaf node $v$ with parent edge $e$ could have $o_v \ge 1$ tokens at $v$. We will set $\abold[v,\yvec_v] = 2 \cdot w(e) \cdot m_v$ where $m_v$ is the number of tours in $\yvec_v$ if the total sum of tokens picked up by the partial tours in $\yvec_v$ is exactly $o_v$. Recall that $f(e)$ is the load on (i.e. number of tours using) edge $e$.
+%Let $2 \cdot w(e) \cdot f(e) = \opt_v$ be the cost of the optimal solution covering $v$ (or $T_v)$. 
+From our structure theorem, we know there exists a near optimum solution such that each partial tour 
+of $T_v$ has one of $O((\log Q \log^3 n)/\eps^3)$ tour sizes and for each small bucket, there are at most $\alpha \log^3n /\eps^2$ partial tours in it. For every big bucket, there are $g = (2 \delta \log n)/\eps^2$ many group sizes and every tour of bucket $i$ has one of these sizes. The base case follows directly from the structure theorem. 
+
+To compute cell $\abold[v, \yvec_v]$, we would need to use another auxiliary table $\bbold$. Suppose $v$ has $k$ children $u_1, \ldots, u_k$ and assume we have already calculated $\abold[u_j, \yvec]$ for every $1 \le j \le k$ and for all vectors $\yvec$. Then we define a cell in our auxiliary table $\bbold[v,\yvec_v', j]$ for each $1 \le j \le k$ where $\bbold[v,\yvec_v', j]$ is the minimum cost of covering $T_{u_1} \cup \ldots \cup T_{u_j}$ where $\yvec_v'$ is the tour profile for the union of subtrees $T_{u_1} \cup \ldots \cup T_{u_j}$. In other words, $\bbold[v, \yvec_v', j]$ is what $\abold[v, \yvec_v]$ is supposed to capture when restricted only to the first $j$ children of $v$. We will set $\abold[v, \yvec_v] = \bbold[v, \yvec_v', k] + 2 \cdot w(e) \cdot m_v$ where $m_v$ is the number of different tours in $\yvec_v'$. We will assume the parent edge of the depot has weight 0. Suppose $T_{u_i}$ has $o_i$ tokens, then the number of tokens in $T_v$ is at least $1 + \sum_{i = 1}^k o_i$. To compute entries of $\bbold[v, \cdot, \cdot]$, we use both $\abold$ and $\bbold$ entries for smaller subproblems of $v$ in the following way:  
+
+\textbf{Case 1:} j = 1: This is the case when we restrict the coverage to only the first child of $v$, $u_1$. 
+\begin{equation*}
+    \begin{split}
+        \bbold[v,\yvec_v',1] & = \mi{\yvec'} \left\{ \abold[u_1, \yvec'] \right\} \\
+    \end{split}
+\end{equation*}
+We will find the minimum cost configurations $\yvec'$ such that $\yvec_v'$ and $\yvec'$ are consistent with each other. We say $\yvec_v'$ and $\yvec'$ are consistent if a tour in $\yvec_v'$ either only covers tokens at $v$ and does not visit any node below $v$ or $\yvec_v'$ consists of a tour from $\yvec'$ plus zero or more extra tokens picked up at $v$. Moreover, every tour in $\yvec'$ is part of some tour in $\yvec_v'$. 
+
+\textbf{Case 2:} $2 \le j \le k$. We will assume we have computed $\bbold[v, \yvec', j - 1]$ and $\abold[u_{j}, \yvec'']$ and we have 
+$$\bbold[v, \yvec_v', j] = \mi{\yvec', \yvec''} \{\bbold[v, \yvec', j - 1] + \abold[u_{j}, \yvec''] \}.$$
+There are four possibilities for each partial tour $t_v$ at node $v$ going down $T_v$ covering tokens for subtrees rooted at children $u_1, \ldots, u_k$ . 
+\begin{itemize}
+    \item $t_v$ could be a tour that only picks up tokens at $v$ and does not pick up tokens from subtrees $T_{u_1} \cup \ldots \cup T_{u_{j}}$.
+    \item $t_v$ could be a tour that picks up tokens at $v$ and picks up tokens only from subtrees $T_{u_1} \cup \ldots \cup T_{u_{j-1}}$. 
+    \item $t_v$ could be a tour that picks up tokens at $v$ and picks up tokens only from subtree $T_{u_{j}}$.
+    \item $t_v$ could be a tour that picks up tokens at $v$ and picks up tokens from subtrees $T_{u_1} \cup \ldots \cup T_{u_{j}}$. 
+\end{itemize}
+We would find the minimum cost over all configurations $\yvec_v', \yvec'$ and $\yvec''$ as long as $\yvec_v', \yvec'$ and $\yvec''$ are consistent. We say tours $\yvec_v',\yvec'$ and $\yvec''$ are consistent if there is a way to combine partial tours from $\yvec'$ and $\yvec''$ to form a partial tour in $\yvec_v'$ while also picking up extra tokens at node $v$. We will define consistency more rigorously in the next section. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Checking Consistency}
+In our dynamic program, for the inner DP, we are given three vector $\yvec_v', \yvec', \yvec''$ where $v$ is a node having children $u_1, \ldots, u_{j}$. $\yvec'$ represents the configuration of tours in $T_{u_1} \cup \ldots \cup T_{j-1}$ and $\yvec''$ represents the configuration of tours covering $T_{u_{j}}$. For the case of checking consistency for case 1, we will assume $\yvec'' = \vec{0}$. Suppose we are given $o_v$ (for node $v$), $o_u$ for children $u_1,\ldots,u_{j-1}$, and
+$o_w$ for $u_j$, we can infer that there are $o'_v = o_v - o_u - o_w$ extra tokens that need to be picked at $v$. $o'_v$ tokens need to be distributed amongst tours in $\yvec_v$. 
+There are four possibilities for each tour $t_v$ in $\yvec_v'$. 
+\begin{itemize}
+    \item $t_v$ could be a tour that picks up extra tokens at $v$ and picks up tokens only from subtrees $T_{u_1} \cup \ldots \cup T_{u_{j-1}}$. 
+    \item $t_v$ could be a tour that picks up extra tokens at $v$ and picks up tokens only from subtree $T_{u_{j}}$.
+    \item $t_v$ could be a tour that picks up extra tokens at $v$ and picks up tokens from subtrees $T_{u_1} \cup \ldots \cup T_{u_{j}}$. 
+\end{itemize}
+For simplicity, we will refer to a tour picking up tokens in $T_{u_1} \cup \ldots \cup T_{u_{j-1}}$ to be $t_u$ and a tour picking up tokens from $T_{u_{j}}$ to be $t_w$.  
+\begin{definition}
+We say configurations $\yvec_v', \yvec'$ and $\yvec''$ are \textbf{consistent} if the following holds: 
+\begin{itemize}
+    \item Every tour in $\yvec'$ maps to some tour in $\yvec_v'$. 
+    \item Every tour in $\yvec''$ maps to some tour in $\yvec_v'$. 
+    \item Every tour in $\yvec_v'$ has at most two tours mapping to it and both tours cannot be from $\yvec'$ or $\yvec''$. 
+    \item Suppose only one tour ($t_u$) maps to a tour $t_v$ in $\yvec_v'$. The number of extra tokens picked up by tour $t_v$ at $v$ is $|t_v| - |t_u|$. 
+    \item Suppose $t_v$, a tour in $\yvec_v'$ has two tours: $t_u$ in $\yvec'$ and $t_w$ in $\yvec''$ mapped to it, then the number of extra tokens picked up by tour $t_v$ at $v$ is $|t_v| - |t_u| - |t_w|$. 
+    \item The extra tokens at $v$, $o'_v = o_v - o_u - o_w$, are picked up by the tours in $\yvec_v'$. 
+\end{itemize}
+\end{definition}
+Consistency ensures that we can patch up tours from subproblems and combine them into new tours in a correct manner while also picking up extra tokens at $v$. Now we will describe how we can compute consistency. Let $\zvec$ be a vector containing a subset of information contained in $\yvec$. 
+$$\zvec_v = [\nvec_v, (\tvec_v^1, \hvec_v^1, \lvec_v^1), (\tvec_v^2, \hvec_v^2, \lvec_v^2), \ldots, (\tvec_v^\tau, \hvec_v^\tau, \lvec_v^\tau)].$$
+From now on, we will choose to not write $\nvec_v$ explicitly since we can figure out the entries of the vector from $\lvec$. Suppose $|t_v|$ is the length of a tour in $\zvec_v'$. Let $\zvec_v' - t_v$ refer to the configuration $\zvec_v'$ having one less tour of size $|t_v|$. 
+Let $\cbold[o'_v, \zvec_v', \zvec', \zvec''] = $ True if it is consistent and False otherwise. For the base case, $\cbold[0, \vec{0}, \vec{0}, \vec{0}] = $True. For the recurrence, we will look at all possible ways of combining $\zvec'$ and $\zvec''$ into $\zvec_v'$ while also picking up extra tokens $o'_v$. Note that $t_v$ is always non-zero, but both or one of $t_u$ or $t_w$ could be zero. 
+$$\cbold[o'_v, \zvec_v', \zvec', \zvec''] = \underset{\substack{t_v, t_u, t_w \\ |t_v| = |t_u| + |t_w| + o_c}}{\bigvee} \cbold[o'_v - o_c, \zvec_v' - t_v, \zvec' - t_u, \zvec'' - t_w].$$
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Time Complexity}
+We will work bottom-up and assume we have already pre-computed our consistency table. Computing $\bbold[\cdot, \cdot, \cdot]$ requires looking at previously computed $\bbold[\cdot, \cdot, \cdot]$ and  $\abold[\cdot,\cdot]$. Given $\yvec_v', \yvec'$ and $\yvec''$ which are all consistent, computing the cost of $\yvec_v'$ using $\yvec'$ and $\yvec''$ takes $O(1)$ time. Each $\yvec_v'$ consists of 
+\begin{enumerate}
+    \item $\nvec$ has $n^{O(\log n / \eps)}$ possibilities. 
+    \item Each $\tvec^i$ has $n^{O(\log^3 n /\eps^2)}$ possibilities since there are $O(\log^3 n /\eps)$ tours in a small bucket. 
+    \item Each $\hvec$ and $\lvec$ have $n^{O(g)}$ possibilities. Recall that $g = (2\delta \log n)/\eps^2 $, so each $\hvec$ and $\lvec$ have $n^{O(\log n /\eps^2)}$ possibilities. 
+    \item Each triple $(\tvec^i, \hvec^i, \lvec^i)$ has $n^{O(\log^3 n /\eps^2)}$ possibilities. 
+    \item $(\tvec^1, \hvec^1, \lvec^1), (\tvec^2, \hvec^2, \lvec^2), \ldots, (\tvec^\tau, \hvec^\tau, \lvec^\tau)$ have $n^{O(\tau \log^3 n /\eps^2)} = n^{O((\log Q\log^3 n)/\eps^3)}$ possibilities since $\tau = O(\log Q/\eps)$. 
+\end{enumerate}
+In total, each $\yvec_v'$ has $n^{O((\log Q\log^3 n)/\eps^3)}$ possibilities. For each $\yvec_v'$, we will have $n^{O((\log Q\log^3 n)/\eps^3)}$ possibilities for $\yvec_u$ and $\yvec_w$. Since there are $n^{O((\log Q\log^3 n)/\eps^3)}$ possibilities for $\yvec_v'$, the cost of computing the DP entries for a single node $v$ would be $n^{O((\log Q\log^3 n)/\eps^3)}$ and since there are $n$ nodes in the tree, the total time of computing the DP table assuming the consistency table is precomputed is $n^{O((\log Q\log^3 n)/\eps^3)}$. 
+
+Before we compute our DP, we will first compute the consistency table $\cbold[\cdot, \cdot, \cdot, \cdot]$. Similar to our DP table, each entry of the consistency table has $n^{O((\log Q\log^3 n)/\eps^3)}$ possibilities. Assuming we have already precomputed smaller entries of $\cbold$ , there are $n^{O((\log Q\log^3 n)/\eps^3)}$ ways of picking $t_v, t_u$ and $t_w$. For a fixed $\yvec_v, \yvec_u, \yvec_w$ and $o'_v$, computing $\cbold[o'_v, \zvec_v', \zvec', \zvec'']$ takes $n^{O((\log Q\log^3 n)/\eps^3)}$ time. Since there are only $n^{O((\log Q\log^3 n)/\eps^3)}$ possibilities for $\zvec_v', \zvec'$ and $\zvec''$, the cost of computing all entries of the consistency table is $n^{O((\log Q\log^3 n)/\eps^3)}$. 
+
+The time for computing both the DP table and consistency table is $n^{O((\log Q\log^3 n)/\eps^3)}$, so the total time taken by our algorithm is $n^{O((\log Q\log^3 n)/\eps^3)}$. For the unit demand case, since $Q \le n$, the runtime of our algorithm is $n^{O(\log^4 n/\eps^3)}$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Extension to Splittable CVRP}
+We can extend our algorithm for unit demand CVRP in trees and show how we can get a QPTAS for splittable CVRP as long as the demands are quasi-polynomially bounded. In our algorithm for unit demand CVRP, we viewed the demand of each node as a token placed at the node. For splittable CVRP, we could assume each node has $1 \le d(v) < nQ$ tokens and we can use the same structure theorem as before by modifying tours such that there are at most $O((\log Q \log^3 n)/\eps^3)$ different tour sizes for partial tours at a node. We can use the same DP to compute the solution. Each $\yvec_v$ consists of 
+\begin{enumerate}
+    \item $\nvec$ has $(nQ)^{O(\log n / \eps)}$ possibilities. 
+    \item Each $\tvec^i$ has $(nQ)^{O(\log^3 n /\eps^2)}$ possibilities since there are $O(\log^3 n /\eps)$ tours in a small bucket. 
+    \item Each $\hvec$ and $\lvec$ have $(nQ)^{O(g)}$ possibilities. Recall that $g = (2\delta \log n)/\eps^2 $, so each $\hvec$ and $\lvec$ have $(nQ)^{O(\log n /\eps^2)}$ possibilities. 
+    \item Each triple $(\tvec^i, \hvec^i, \lvec^i)$ has $(nQ)^{O(\log^3 n /\eps^2)}$ possibilities. 
+    \item $(\tvec^1, \hvec^1, \lvec^1), (\tvec^2, \hvec^2, \lvec^2), \ldots, (\tvec^\tau, \hvec^\tau, \lvec^\tau)$ have $(nQ)^{O(\tau \log^3 n /\eps^2)} = (nQ)^{O((\log Q\log^3 n)/\eps^3)}$ possibilities since $\tau = O(\log Q/\eps)$. 
+\end{enumerate}
+Similar to the analysis of the runtime of the unit demand case, the time complexity of computing the entries of DP tables $\abold, \bbold$, and the consistency table $\cbold$ is, $(nQ)^{O((\log Q\log^3 n)/\eps^3)}$. Suppose $Q = n^{O(\log^c n)}$, then the runtime of our algorithm is $n^{O(\log^{2c+4} n/\eps^3)}$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{QPTAS for Bounded Treewidth Graphs}
+Given a graph $G = (V,E)$ with treewidth $k$, we will assume we are given a tree decomposition $T = (V',E')$. We will refer to $G$ as the graph and $T$ as the tree. We will refer to vertices in $V$ by \textbf{nodes} and vertices in $V'$ by \textbf{bags}. We will refer to edges in $E$ by \textbf{edges} and edges in $E'$ by \textbf{superedges}.
+\begin{definition}
+A \textbf{tree decomposition} of a graph $G$ is a pair $(T, \{B_t\}_{t \in V(T)})$, where $T$ is a tree whose every node $t \in V'$ is assigned a vertex subset $B_t \subseteq V(G)$, called a bag, such that the following three conditions hold: 
+\begin{enumerate}
+    \item $\cup_{t \in V(T)} B_t = V(G)$. In other words, every vertex of $G$ is in at least one bag. 
+    \item For every $uv \in E(G)$, there exists a node $t$ of $T$ such that bag $B_t$ contains both $u$ and $v$. 
+    \item For every $u \in V(G)$, the set $T_u = \{t \in V(T) : u \in B_t \}$, i.e., the set of nodes whose corresponding bags contain $u$, induces a connected subtree of $T$. 
+\end{enumerate}
+%We will say that $(A,B)$ is a \textit{separation} of a graph $G$ if $A \cup B = V(G)$ and there is no edge between $A \setminus B$ and $B \setminus A$. Then $A \cap B$ is a \textit{separator} of this separation, and the $|A \cap B|$ is called the order of the separation. Any path in $G$ that begins in $A$ and ends in $B$ must contain at least one vertex of the separator $A \cap B$. Also, for a subset $A \subseteq V(G)$, we define the border of $A$, denoted $\partial(A)$, as the set of those vertices of $A$ that have a neighbor in $V(G) \setminus A$. Note that $(A, (V(G) \setminus A) \cup \partial(A))$ is a separation with separator $\partial(A)$. 
+\end{definition} 
+For a bag $s$, let $C_s$ denote the union of nodes in bags below $s$ including $s$. Bag $s$ forms a boundary or border between nodes in $C_s$ and $V(G) \setminus C_s$. We will assume an arbitrary bag containing the depot to be root of the tree decomposition. Let $k$ be the treewidth of our graph $G$. We will assume that following properties hold for our tree decomposition $T$ of $G$ from the work of Boedlander and Hagerup \cite{BodlaenderH95}, 
+\begin{itemize}
+    \item $T$ is binary. 
+    \item $T$ has depth $O(\log n)$. 
+    \item The width of $T$ is at most $k'=3k + 2$. 
+\end{itemize}
+To simplify  notation, by replacing $k'$ with $k$
+we will assume $T$ has height $\delta \log n$ for some fixed $\delta > 0$ and each bag has width $k$. From the third property of a tree decomposition, we know that for every $u \in V(G)$, the set $T_u = \{t \in V(T) : u \in X_t \}$ i.e., the set of nodes whose corresponding bags contain $u$, induces a connected subtree of $T$. Since the bags associated with a node $u \in V(G)$ correspond to a subtree in $T$, we will place the demand/tokens of $u$ at the root bag of the tree $T_u$ i.e. the bag containing $u$ closest to the root bag of $T$. Since $T_u$ is a tree, we are guaranteed a unique root bag of $T_u$ exists. We are doing this to ensure that the demand of a client is delivered exactly once. 
+
+Similar to how we showed the existence of a near-optimum solution for trees, we will modify the optimum solution $\OPT$ in a bottom-up manner by modifying the tours covering the set of nodes below bag $s$, $C_s$. For each bag $s$, we change the structure of the partial tours going down $C_s$ (by adding a few extra tours from the depot) and also adding some extra tokens for nodes in bag $s$ so that the partial tours that visit $C_s$ all have a size from one of polyogarithmic many possible sizes (buckets) while increasing the number and the cost of the tours by a small factor. Note that although a node can be in different bags, its initial demand is in one bag and we might add extra tokens to copies of it in other bags. 
+
+Similar to the case of tree, we assume the bags of the tree decomposition are partitioned into levels $V_1,\ldots,V_h$ where $V_1$ is the bag containing the depot and $h$ is the height of $T$.  For every tour $\calT$ and every level $\ell$, we can define the notion of top and bottom part similar to the case of trees. For every $C_s$, a tour $\calT$ enters $C_s$ through bag $s$ using a node $x$ and exists through node $z$ where both $x$ and $z$ have to be in $s$. Note that $x$ and $z$ could be equal if the tour enters and exists $s$ using the same node. For a bag $s$, let $n_{s}^{x,z}$ be the number of partial tours covering nodes in $C_s$ that enter through $x$ and exit through $z$ in $s$. For each bag and entry/exit pair, we will define the notion of a small/big bucket similar to the case of trees. For a big bucket, we will place the $n_{s}^{x,z}$ tours (ordered by increasing size) into groups $G_1^{x,z,s}, \ldots, G_g^{x,z,s}$ of equal sizes. Let $h_{i}^{s,x,z, \max} (h_{i}^{s,x,z, \min}) $ refer to the maximum (minimum) size of the tours in $G^{x,z,s}_i$.
+
+Similar to the case of trees, let $f$ be a mapping from a tour in $G_i^{x,z,s}$ to one in $G_{i-1}^{x,z,s}$. Now suppose we modify $\OPT$ to $\OPT'$ in the following way: for each tour $\calT$ that has a partial tour in $t \in G_i^{x,z,s}$, replace the bottom part of $\calT$ entering through $x$ and exiting through $z$ in $s$ from $t$ to $f(t)$ (which is in $G_{i-1}^{x,z,s}$). The only problem is that those tokens in $C_s$ that were picked up by the partial tours in $G_g^{x,z,s}$ are not covered by any tours and like the case of trees, these are \emph{orphant} tokens. For each tour $\calT$ and its (new) partial tour $t \in G_i^{x,z,s}$, if we add $h_i^{{x,z,s}, \max} - |t|$ extra tokens at $s$ to be picked up by $t$, then each partial tour has size exactly same as the maximum size of its group without violating the capacities. 
+Similar to the case of trees, we will show that if $n_{s}^{x,z}$ is sufficiently large (at least polylogarithmic), then if we sample a small fraction of the tours of the optimum at random and add two copies of them (as extra tours), they can be used to cover the orphant tokens. 
+
+The proof of the following structure theorem is similar to that of Theorem \ref{lem:struct1} (see full version):
+
+
+\begin{theorem}\label{lem:struct2} \textbf{(Structure Theorem)}
+Let $\opt$ be the cost of the optimal solution to instance $\calI$. We can build an instance $\calI'$
+such that each node has $\geq 1$ tokens and there exists a near-optimal solution $\OPT'$ for $\calI'$
+having expected cost $(1 + 2\eps)\opt$ with the following property.
+The partial tours going down $C_s$ for every bag $s$ in $\OPT'$ has one of $O((\log Q \log^2 n)/\eps^2)$ possible sizes.
+More specifically, suppose $(s,b_i,x,z)$ is a entry/exit-bag-bucket configuration for $\OPT'$. Then either:
+\begin{itemize}
+\item $b_i$ is a small bucket and hence there are at most $\alpha \log^2 n/\eps$ many partial tours of $C_s$ whose size is in bucket $b_i$, or
+\item $b_i$ is a big bucket; in this case there are $g = (2\delta \log n)/\eps $ many group sizes in $b_i$: 
+$\sigma_i \leq h_{i,1}^{s,x,z,max}\leq \ldots\leq h_{i,g}^{s,x,z,max}<\sigma_{i+1}$ and every tour of bucket $i$ has one of these sizes. 
+\end{itemize}
+\end{theorem}
+
+Using this structure theorem we can design a dynamic program to find a near optimum
+solution. The dynamic program will be similar to (but a lot more complex) the one developed for the case of trees (details in the full version).
+For a given bag $s$, we will estimate the number of tours entering and exiting $s$. Informally, we will have a vector $\nvec^{s,x,z} \in [n]^\tau$ where if $i < 1/\eps$, $\nvec_{i}^{s,x,z}$ keeps track of the exact number of tours covering $i$ tokens in $C_s$ by entering through $x$ and exiting though $z$ and if $i \ge 1/\eps$, $\nvec_{i}^{s,x,z}$ keeps track of the number of tours covering between $[\sigma_i, \sigma_{i+1})$ tokens. Let $a_s$ denote the total number of tokens to be picked up from nodes from bags below and including bag $s$. Since each bag $s$ has $k$ nodes, we use $\ovec_s \in [n]^{k}$ to denote the extra tokens to be picked up from nodes at bag $s$. If $v$ is a node in bag $s$, then $\ovec_{s,v}$ denotes the number of extra tokens to be picked up at $v$ in $s$. For a given entry/exit-bag-bucket configuration $(s,b_i,x,z)$, we will keep track of other pieces of information conditional on whether it is small or big. If entry/exit-bag-bucket configuration $(s,b_i,x,z)$ is small, we will store all tour sizes exactly. Since the number of tours in a small entry/exit-bag-bucket configuration is at most $\gamma = \alpha \log^2n /\eps$, we will use a vector $\tvec^{s,x,z,i} \in [n]^\gamma$ to represent the tours where  $\tvec^{s,x,z,i}_j$ represents the size of the $j$-th tour in the $i$-th bucket of tours covering $C_s$ entering through $x$ and exiting through $z$. 
+
+If the entry/exit-bag-bucket configuration $(s,b_i,x,z)$ is big, there are $g = (2\delta \log n)/\eps$ many tour sizes corresponding to $n^{O(g)}$ possibilities. For each  entry/exit-bag-bucket configuration $(s,b_i,x,z)$, we need to keep track of the following information, 
+\begin{itemize}
+    \item $\hvec^{s,x,z,i} \in [n]^g$ is a vector where $\hvec^{s,x,z,i}_j = h_{i,j}^{s,x,z, \max}$, which is the size of the maximum tour which lies in group $G_{i,j}^{s,x,z}$ of bucket $i$ at bag $s$ entering through $x$ and exiting through $z$. 
+    \item $\lvec^{s,x,z,i} \in [n]^g$ is a vector where $\lvec^{s,x,z,i}_j$ denotes the number of partial tours covering $h_{i,j}^{s,x,z, \max}$ tokens which lies in group $G_{i,j}^{s,x,z}$ of bucket $i$ at bag $s$ entering through $x$ and exiting through $z$. 
+\end{itemize}
+For a bag $s$ and entry/exit pairs, let $\pvec_{s,x,z}$ be a vector containing information about all tours entering and exiting $s$ through $x$ and $z$ across all buckets.
+$$\pvec_{s,x,z} = [\nvec^{s,x,z}, (\tvec^{s,x,z,1},\hvec^{s,x,z,1},\lvec^{s,x,z,1}), (\tvec^{s,x,z,2},\hvec^{s,x,z,2},\lvec^{s,x,z,2}), \ldots, (\tvec^{s,x,z,\tau},\hvec^{s,x,z,\tau},\lvec^{s,x,z,\tau}) ]. $$
+Similar to the case of trees, an entry/exit-bag-bucket configuration $(s,b_i,x,z)$ is either small or big and cannot be both, hence given $(\tvec^{s,x,z,i},\hvec^{s,x,z,i},\lvec^{s,x,z,i})$, it cannot be the case that $\tvec^{s,x,z,i} \neq \vec{0}, \hvec^{s,x,z,i} \neq \vec{0}$ and $\lvec^{s,x,z,i} \neq \vec{0}$. Since a bag $s$ contains $O(k)$ nodes, then we will let $\yvec_s$ denote a configuration of all partial tours covering tokens in $C_s$ which are entering and exiting $s$. Let $v_1, \ldots, v_d$ be the set of all nodes in $s$, then $\yvec_s$ contains information of tours entering and exiting $s$ through pairs of nodes in
+$\{v_1, \ldots, v_d\}$. Note that a tour can enter and exit $s$ through the same node. 
+$$\yvec_s = [a_s, \ovec_s, \pvec_{s,v_1,v_1}, \pvec_{s,v_1,v_2}, \ldots, \pvec_{s,v_{d}, v_{d-1}}, \pvec_{s, v_d, v_d}]. $$
+The subproblem $\abold[s, \yvec_s]$ is supposed to be the minimum cost collection of partial tours covering $C_s$ having tour profiles corresponding to $\yvec_s$. Our dynamic program heavily relies on the properties of the near-optimal solution characterized by the structure theorem. We will compute $\abold[\cdot, \cdot]$ in a bottom-up manner, computing $\abold[s, \yvec_s]$ after we have computed entries for the children bags of $s$. 
+
+The final answer is obtained by looking at various entries of the root bag of the tree decomposition, denoted by $r_s$. We will take the minimum cost entry amongst $\abold[r_s, \yvec_{r_s}]$ such that $\yvec_{r_s}$ is the configuration where all tours enter and exit $r_s$ only through the depot, $r$. We will compute our solution in a bottom-up manner. 
+
+It can be shown that the time complexity of computing the DP table will be
+$(nk)^{O(k)}n^{O(k^2\log Q\log^2 n/\eps^2)} = n^{O(k^2\log Q\log^2 n/\eps^2)}$. Hence, for the unit demand case, since $Q \le n$, the runtime of our algorithm is $n^{O(k^2\log^3 n/\eps^2)}$.  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+%\subsection{Extension to Splittable CVRP in Bounded Treewidth Graphs}
+We can extend our algorithm for unit demand CVRP on bounded-treewidth graphs to the splittable CVRP when demands are quasi-polynomially bounded.  In our algorithm for unit demand CVRP for bounded-treewidth CVRP, we viewed the unit demand of each node as a token placed at the node. For the splittable case, we can rescale the demand $d(v)$ such that there are $1 \le d(v) < nQ$ tokens on a node and we can use the same structure theorem as before by modifying tours such that there are at most $O(\log Q \log^2 n/\eps^2)$ different tours for partial tours at a node. We can use the same DP to compute the solution. 
+The time complexity of computing the entries of DP tables is, $(kQ)^{O(k)}(nQ)^{O(k^2\log Q\log^2 n/\eps^2)} = (nQ)^{O(k^2\log Q\log^2 n/\eps^2)}$ since $k \le n$. Suppose $Q = n^{O(\log^c n)}$, then the runtime of our algorithm is $n^{O(k^2 \log^{2c + 3}n/\eps^2)}$. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Extension to Splittable CVRP for Graphs of Bounded Doubling Metrics and Bounded Highway Dimension}
+In this section, we will show how we can use our algorithm for CVRP on bounded-treewidth graphs as a blackbox to obtain a QPTAS for graphs of bounded doubling metrics and graphs of bounded highway dimension.  We will use the following result about emdedding graphs of doubling dimension $D$ into a bounded-treewidth graph of treewidth $k \le 2^{O(D)}\ceil*{\br{\frac{4D\log \Delta}{\eps}}^D}$ by Talwar \cite{Talwar-embedding}. 
+\begin{lemma}\label{lem:doubling-embed}
+(Theorem 9 in \cite{Talwar-embedding}) Let $(X,d)$ be a metric with doubling dimension $D$ and aspect ratio $\Delta$. For any $\eps > 0$, $(X,d)$ can be $(1 + \eps)$ probabilistically approximated by a family of treewidth $k$-metrics for $k \le 2^{O(D)}\ceil*{\br{\frac{4D\log \Delta}{\eps}}^D}$.
+\end{lemma}
+We will also use the following result by Feldmann et al. \cite{FeldmannFKP15-embedding} related to graphs of low highway dimension. 
+\begin{lemma}\label{lem:highway-embe}
+(Theorem 3 in \cite{FeldmannFKP15-embedding}) Let $G$ be a graph with highway dimension $D$ of violation $\lambda > 0$, and aspect ratio $\Delta$. For any $\eps > 0$, there is a polynomial-time computable probabilistic embedding $H$ of $G$ with treewidth $(\log \Delta)^{O\br{\log^2(\frac{D}{\eps \lambda})/\lambda}}$ and expected distortion $1 + \eps$. \end{lemma}
+
+For both graph classes, our algorithm works as follows. The input graph $G$ is embedded into a host graph $H$ of bounded treewidth using the embedding given in Lemma \ref{lem:doubling-embed} and Lemma \ref{lem:highway-embe}. The algorithm then finds a $(1 + \eps)$-approximation for CVRP for $H$, using the dynamic programming solution from the Section 5. The solution for $H$ is then \emph{lifted} back to a solution in $G$. For each tour in the solution for $H$, a tour in $G$ will visit nodes in the same order as the tour in $H$. The embedding given in Lemma \ref{lem:doubling-embed} and Lemma \ref{lem:highway-embe} is such that an optimal set of tours in the host graph gives a $(1 + \eps)$ solution in $G$. The embedding also ensures that $H$ has treewidth small enough that the algorithm runs in quasi-polynomial time. \begin{comment}Suppose $\calT_1, \ldots, \calT_c$ are the set of tours in $\OPT$, let $E(\calT_i)$ be the edges denoting the order in which nodes are visited by $\calT_i$. Let $\cost(\calT_i)$ be the contribution of the tour $\calT_i$ towards $\opt$. We can write $\cost(\calT_i) = \sum_{uv \in E(\calT_i)} d(u,v)$ and we can write $\opt = \sum_{i = 1}^c \cost(\calT_i) = \sum_{i = 1}^c \sum_{uv \in E(\calT_i)} d(u,v)$. \end{comment}
+\begin{theorem}
+For any $\eps > 0$ and $D > 0$, there is a an algorithm that, given an instance of the splittable CVRP with capacity $Q = n^{\log^c n}$ and the graph has doubling dimension $D$ with cost $\opt$, finds a  
+$(1 + \eps)$-approximate solution in time 
+$n^{O(D^D \log^{2c + D + 3}n/\eps^{D+2})}$.
+\end{theorem}
+\begin{proof}
+This follows easily from Lemma \ref{lem:doubling-embed} and using the algorithm for bounded-treewidth as a blackbox. In place of $k$, we will substitute $k = 2^{O(D)}\ceil*{\br{\frac{4D\log \Delta}{\eps}}^D}$ into the runtime for the algorithm for bounded-treewidth which is $n^{O(k^2 \log^{2c + 3}n/\eps^2)}$. Hence, we have an algorithm for graphs of bounded doubling dimension with runtime $n^{O(D^D \log^{2c + D + 3}n/\eps^{D+2})}$. 
+\end{proof}
+
+As an immediate corollary, since $\mathbb{R}^2$ has doubling dimension $\log_2 7 < 3$ \cite{disk-covering}, the above theorem implies an approximation scheme for unit demand CVRP on Euclidean metrics on $\mathbb{R}^2$ in time $n^{O(\log^{6}n/\eps^{5})}$ which improves on the run time of $n^{\log^{O(1/\epsilon)}n}$ of \cite{Das-Mathieu}. 
+\begin{comment}
+\begin{proof}
+Let $\OPT_H$ be the optimal solution in the host graph $H$, which is the bounded treewidth graph and let $\OPT_G$ be the optimal solution in the original graph $G$. Let $\opt_G$ and $\opt_H$ denote the cost of the optimal solutions in graph $G$ and $H$. A tour is a set of edges denoting the order in which nodes are visited. Let $\cost_G(\OPT)$ denote the cost of the set of tours in $\OPT$ when used on graph $G$. Our goal is to show that $\cost_G(\OPT_H) \le (1 + \eps)\cost_G(\OPT(G)) \le (1 + \eps)\opt$. 
+
+
+
+We will use the embedding presented by Lemma \ref{lem:doubling-embed} to embed $G$ into $H$ and use the fact that for any two nodes $u,v$, on expectation
+$$d_G(u,v) \le d_H(u,v) \le (1 + \eps) d_G(u,v).$$
+Note that the vertices are the same in both $H$ and $G$, so a solution to an instance in $H$ is also a solution in $G$ (and vice versa). Since $d_G(u,v) \le d_H(u,v)$, we know for any solution $\OPT$, $\cost_G(\OPT) \le \cost_H(\OPT)$. Note that $\cost_H(\OPT_H) \le \cost_H(\OPT_G)$. 
+\begin{equation*}
+    \begin{split}
+        \cost_G(\OPT_H) & \le \cost_H(\OPT_H) \le \cost_H(\OPT_G) \\ 
+        & = \sum_{\calT_i \in \OPT_G} \cost_H(\calT_i) =\sum_{\calT_i \in \OPT_G}\sum_{uv \in E(\calT_i)} d_H(u,v) \\
+        & \le \sum_{\calT_i \in \OPT_G}\sum_{uv \in E(\calT_i)} (1 + \eps) d_G(u,v) \\ 
+        & = (1 + \eps) \sum_{\calT_i \in \OPT_G} \cost_G(\calT_i) \\ 
+        & = (1 + \eps)\cost_G(\OPT_G) \\ 
+    \end{split}
+\end{equation*}
+Hence, for an appropriate choice of $\eps$, we can find a $(1 + \eps)$-approximation for a graph $G$ which has bounded doubling dimension. Recall that the time complexity of for splittable CVRP on bounded treewidth graphs is $n^{O(k^2 \log^{2c + 3}n/\eps^2)}$. Since the treewidth of $H$, $k \le 2^{O(D)}\br{\frac{4D \log n}{\eps}}^D$, we get that the running time of our algorithm is $n^{O(D^D \log^{2c + D + 3}n/\eps^{D+3})}$.
+\end{proof}
+\end{comment}
+\begin{theorem}
+For any $\eps > 0, \lambda > 0$ and $D > 0$, there is a an algorithm that, given an instance of the splittable CVRP with capacity $Q = n^{\log^c n}$ and a graph with highway dimension $D$ and violation $\lambda$ finds
+a $(1+\eps)$-approximate solution in time $n^{O( \log^{2c + 3 + \log^2(\frac{D}{\eps \lambda})\cdot \frac{1}{\lambda}}n/\eps^2)}$.
+\end{theorem}
+\begin{comment}
+\begin{proof}
+Let $\OPT_H$ be the optimal solution in the host graph $H$, which is the bounded treewidth graph and let $\OPT_G$ be the optimal solution in the original graph $G$. Let $\opt_G$ and $\opt_H$ denote the cost of the optimal solutions in graph $G$ and $H$. A tour is a set of edges denoting the order in which nodes are visited. Let $\cost_G(\OPT)$ denote the cost of the set of tours in $\OPT$ when used on graph $G$. Our goal is to show that $\cost_G(\OPT_H) \le (1 + \eps)\cost_G(\OPT(G)) \le (1 + \eps)\opt$. 
+
+We will use the embedding presented by Lemma \ref{lem:highway-embe} to embed $G$ into $H$ and use the fact that for any two nodes $u,v$, on expectation
+$$d_G(u,v) \le d_H(u,v) \le (1 + \eps) d_G(u,v).$$
+Note that the vertices are the same in both $H$ and $G$, so a solution to an instance in $H$ is also a solution in $G$ (and vice versa). Since $d_G(u,v) \le d_H(u,v)$, we know for any solution $\OPT$, $\cost_G(\OPT) \le \cost_H(\OPT)$. Note that $\cost_H(\OPT_H) \le \cost_H(\OPT_G)$. 
+\begin{equation*}
+    \begin{split}
+        \cost_G(\OPT_H) & \le \cost_H(\OPT_H) \le \cost_H(\OPT_G) \\ 
+        & = \sum_{\calT_i \in \OPT_G} \cost_H(\calT_i) =\sum_{\calT_i \in \OPT_G}\sum_{uv \in E(\calT_i)} d_H(u,v) \\
+        & \le \sum_{\calT_i \in \OPT_G}\sum_{uv \in E(\calT_i)} (1 + \eps) d_G(u,v) \\ 
+        & = (1 + \eps) \sum_{\calT_i \in \OPT_G} \cost_G(\calT_i) \\ 
+        & = (1 + \eps)\cost_G(\OPT_G) \\ 
+    \end{split}
+\end{equation*}
+Hence, for an appropriate choice of $\eps$, we can find a $(1 + \eps)$-approximation for a graph $G$ which has bounded highway dimension. Recall that the time complexity of for splittable CVRP on bounded treewidth graphs is $n^{O(k^2 \log^{2c + 3}n/\eps^2)}$. Since the treewidth of $H$, $k \le (\log \Delta)^{O\br{\log^2(\frac{D}{\eps \lambda})/\lambda}}$, we get that the running time of our algorithm is $n^{O( \log^{2c + 3 + \log^2(\frac{D}{\eps \lambda})\cdot \frac{1}{\lambda}}n/\eps^2)}$.
+\end{proof}
+\end{comment}
+\begin{proof}
+This follows easily from Lemma \ref{lem:highway-embe} and using the algorithm for bounded-treewidth as a blackbox. In place of $k$, we will substitute $k = (\log \Delta)^{O\br{\log^2(\frac{D}{\eps \lambda})/\lambda}}$ into the runtime for the algorithm for bounded-treewidth which is $n^{O(k^2 \log^{2c + 3}n/\eps^2)}$. Hence, we have an algorithm for graphs of bounded doubling dimension with runtime $n^{O( \log^{2c + 3 + \log^2(\frac{D}{\eps \lambda})\cdot \frac{1}{\lambda}}n/\eps^2)}$. 
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+\section{Conclusion}
+In this paper, we presented QPTAS's for CVRP on trees, graphs of bounded treewidths, bounded doubling dimension, and bounded highway dimension. The immediate questions to consider are whether these approximation schemes can in fact be turned into PTAS's. Even for the case of trees, although we can improve the run time slightly by shaving off one (or maybe two) log factors from the exponent, it is not clear if it can be turned into a PTAS without significant new ideas. 
+
+Although our result implies a QPTAS with a better run time
+for CVRP on Euclidean plan $\mathbb{R}^2$ ($n^{O(\log^{6}n/\eps^{5})}$ vs the time of
+f $n^{\log^{O(1/\epsilon)}n}$ of \cite{Das-Mathieu}), getting a PTAS remains an interesting open question.
+As discussed in \cite{AdamaszekCL09}, the difficult case appears to be when $Q$ is polynomial in $n$ (e.g. $Q=\sqrt{n}$). Another interesting question is to consider CVRP on planar graphs and develop approximation schemes for them and more generally graphs of bounded genus or minor free graphs.
+\bibliographystyle{abbrv}
+\bibliography{references}
+
+
+\end{document}
+
